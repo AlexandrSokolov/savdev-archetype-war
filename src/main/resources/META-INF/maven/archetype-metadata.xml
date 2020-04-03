@@ -1,0 +1,73 @@
+<archetype-descriptor
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0
+        http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+  xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  name="archetype-war">
+
+  <requiredProperties>
+
+    <!--    properties that must be explicitely defined START:-->
+    <requiredProperty key="gitRepositoryUrl" />
+    <requiredProperty key="jiraUrl" />
+    <requiredProperty key="bm-product-bom" />
+    <requiredProperty key="projectDescription"/>
+
+    <!--    properties that must be explicitely defined END-->
+
+    <requiredProperty key="package">
+      <defaultValue>${groupId}.${artifactId}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="appContextRoot">
+      <defaultValue>/cs</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="persistenceUnitName">
+      <defaultValue>cs_pu_name</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="jtaDataSource">
+      <defaultValue>java:/cs_db</defaultValue>
+    </requiredProperty>
+
+    <!--    remove them for your specific case and use values statically START -->
+    <requiredProperty key="companyName" />
+    <requiredProperty key="companyUrl" />
+    <requiredProperty key="securityDomain" />
+    <requiredProperty key="authRoleName" />
+    <requiredProperty key="repositoryId" />
+    <requiredProperty key="repositoryUrl" />
+    <requiredProperty key="bomGroupId" />
+    <requiredProperty key="bomArtifactId" />
+    <requiredProperty key="distributionRepositoryId" />
+    <requiredProperty key="distributionRepositoryUrl" />
+    <requiredProperty key="distributionSnapshotRepositoryId" />
+    <requiredProperty key="distributionSnapshotRepositoryUrl" />
+    <!--    remove them for bm END -->
+
+
+  </requiredProperties>
+
+  <fileSets>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp/WEB-INF</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory />
+      <includes>
+        <include>.gitignore</include>
+        <include>README.md</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

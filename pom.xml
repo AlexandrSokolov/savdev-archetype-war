@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.savdev.mvn.archetype</groupId>
+  <artifactId>savdev-war</artifactId>
+  <packaging>maven-archetype</packaging>
+  <version>1.0.0</version>
+
+  <name>savdev.archetype-war</name>
+
+  <url>http://savdev.com</url>
+
+  <properties>
+
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <archetype-packaging.version>3.1.2</archetype-packaging.version>
+    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+  </properties>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>${archetype-packaging.version}</version>
+      </extension>
+    </extensions>
+
+    <plugins>
+      <!--  fix for .gitignore file, see:
+      [https://stackoverflow.com/questions/32580244/gitignore-file-is-not-copied-to-archetype-jar-workarounds]-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven-resources-plugin.version}</version>
+        <configuration>
+          <addDefaultExcludes>false</addDefaultExcludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+</project>

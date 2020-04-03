@@ -1,0 +1,248 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <version>${version}</version>
+  <packaging>war</packaging>
+
+  <name>${artifactId}</name>
+  <url>${companyUrl}</url>
+
+  <description>${projectDescription}</description>
+  <organization>
+    <name>${companyName}</name>
+    <url>${companyUrl}</url>
+  </organization>
+
+  <properties>
+
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <jee.version>7.0</jee.version>
+    <google.guava.version>18.0</google.guava.version>
+    <apache.commons.commons-lang3.version>3.9</apache.commons.commons-lang3.version>
+    <junit.version>4.12</junit.version>
+
+    <liquibase.version>3.8.0</liquibase.version>
+    <snakeyaml.version>1.25</snakeyaml.version>
+
+    <bm-product-bom.version>${bm-product-bom}</bm-product-bom.version>
+
+    <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
+    <gmaven-plugin.version>1.0</gmaven-plugin.version>
+    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+    <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
+    <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
+  </properties>
+
+  <scm>
+    <connection>${gitRepositoryUrl}</connection>
+    <developerConnection>${gitRepositoryUrl}</developerConnection>
+    <url>${jiraUrl}}</url>
+  </scm>
+
+
+  <repositories>
+    <repository>
+      <id>${repositoryId}</id>
+      <url>${repositoryUrl}</url>
+    </repository>
+  </repositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>${bomGroupId}</groupId>
+        <artifactId>${bomArtifactId}</artifactId>
+        <version>${bm-product-bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <distributionManagement>
+    <repository>
+      <id>${distributionRepositoryId}</id>
+      <uniqueVersion>false</uniqueVersion>
+      <url>${distributionRepositoryUrl}</url>
+    </repository>
+    <snapshotRepository>
+      <id>${distributionSnapshotRepositoryId}</id>
+      <uniqueVersion>true</uniqueVersion>
+      <url>${distributionSnapshotRepositoryUrl}</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${jee.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${google.guava.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${apache.commons.commons-lang3.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-core</artifactId>
+      <version>${liquibase.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-cdi</artifactId>
+      <version>${liquibase.version}</version>
+    </dependency>
+
+    <!-- needed to parse yml by liquibase-->
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>${snakeyaml.version}</version>
+    </dependency>
+
+    <!-- TEST -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- TEST -->
+  </dependencies>
+
+  <build>
+    <finalName>${artifactId}-${project.version}</finalName>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>${buildnumber-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <!--
+                    <buildNumberPropertiesFileLocation>${project.build.directory}/buildNumber.properties</buildNumberPropertiesFileLocation>
+                    -->
+          <scmBranchPropertyName>scmBranch</scmBranchPropertyName>
+          <buildNumberPropertyName>scmRevision</buildNumberPropertyName>
+          <revisionOnScmFailure>0</revisionOnScmFailure>
+          <timestampPropertyName>buildTime</timestampPropertyName>
+          <timestampFormat>{0,date,yyyy-MM-dd HH:mmXXX}</timestampFormat>
+          <doCheck>false</doCheck>
+          <doUpdate>false</doUpdate>
+          <useLastCommittedRevision>true</useLastCommittedRevision>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.groovy.maven</groupId>
+        <artifactId>gmaven-plugin</artifactId>
+        <version>${gmaven-plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <configuration>
+              <source>
+                project.properties["buildHost"] =
+                  InetAddress.getLocalHost().getHostName()
+              </source>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven-resources-plugin.version}</version>
+        <configuration>
+          <delimiters>
+            <delimiter>@</delimiter>
+          </delimiters>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>${findbugs-maven-plugin.version}</version>
+        <configuration>
+          <!--
+              Enables analysis which takes more memory but finds more bugs.
+              If you run out of memory, changes the value of the effort element
+              to 'Low'.
+          -->
+          <effort>Max</effort>
+          <!-- Build does fail if problems are found -->
+          <failOnError>true</failOnError>
+          <!-- Reports all bugs (other values are medium and max) -->
+          <threshold>Low</threshold>
+          <!-- Produces XML report -->
+          <xmlOutput>true</xmlOutput>
+          <!-- Configures the directory in which the XML report is created -->
+          <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
+        </configuration>
+        <executions>
+          <!--
+              Ensures that FindBugs inspects source code when project is compiled.
+          -->
+          <execution>
+            <id>analyze-compile</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>${maven-site-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
