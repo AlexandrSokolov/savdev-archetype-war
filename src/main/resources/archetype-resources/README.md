@@ -64,12 +64,21 @@ inside of the `${artifactId}-${project.version}.war` package.
 #### Code quality:
 ]]#
 
-FindBug is triggered during compilation. 
+FindBug, PMD/CMD, JaCoCo are triggered during compilation. 
 
 You can view the found bugs via `mvn findbugs:gui`
 
-You can also generate FindBugs reports via 'mvn site' 
-and find the FindBugs and other reports in the `site` folder
+You can also generate all reports via 'mvn site' 
+and find them in the `target/site` folder
+
+#[[
+#### Test coverage:
+]]#
+
+The test coverage `jacoco-maven-plugin` plugin is configured 90% of lines must be covered. 
+You can change this threshold in the `pom.xml` file.
+
+The better approach is to exclude some classes/packages from the plugin configuration.
 
 #[[
 #### TODO list. 
