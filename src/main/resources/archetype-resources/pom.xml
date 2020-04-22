@@ -38,6 +38,8 @@
     <gmaven-plugin.version>1.0</gmaven-plugin.version>
     <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
     <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
+    <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
+    <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
     <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
   </properties>
 
@@ -222,7 +224,7 @@
               Ensures that FindBugs inspects source code when project is compiled.
           -->
           <execution>
-            <id>analyze-compile</id>
+            <id>analyze-compile-findbugs</id>
             <phase>compile</phase>
             <goals>
               <goal>check</goal>
@@ -230,6 +232,38 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>${maven-pmd-plugin.version}</version>
+        <configuration>
+          <linkXref>true</linkXref>
+          <sourceEncoding>utf-8</sourceEncoding>
+          <!-- The minimum number of tokens that need to be duplicated before it causes a violation.-->
+          <minimumTokens>100</minimumTokens>
+          <!-- do not set targetJdk, violation does not trigger build failed then !!-->
+          <!-- <targetJdk>1.7</targetJdk>-->
+          <excludes>
+            <exclude>**/*Bean.java</exclude>
+            <exclude>**/generated/*.java</exclude>
+          </excludes>
+          <excludeRoots>
+            <excludeRoot>target/generated-sources/stubs</excludeRoot>
+          </excludeRoots>
+        </configuration>
+        <executions>
+          <execution>
+            <id>analyze-compile-pmd</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>check</goal>
+              <goal>cpd-check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
@@ -242,6 +276,16 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>${maven-pmd-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>${maven-jxr-plugin.version}</version>
       </plugin>
     </plugins>
   </reporting>

@@ -1,12 +1,10 @@
 #### TODO list:
-- how to work with findbug (compilation, reports generation in both README)
-- exlcude certain java classes and packages from analyses of findbug, update docs
-- push it into the git repo
+- base test to get String, InputStream, json
 - test coverage plugin
-- pmd plugin
 - codestyle plugin (the last one)
 - maven-javadoc-plugin what is it, from org.apache.maven.plugins
 - maven-project-info-reports-plugin, from org.apache.maven.plugins
+- exlcude certain java classes and packages from analyses of findbug, update docs
 - create parent-child project, 
   to configure everything in the parent, 
   and only small things in child
