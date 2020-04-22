@@ -1,6 +1,5 @@
 #### TODO list:
 - base test to get String, InputStream, json
-- test coverage plugin
 - codestyle plugin (the last one)
 - maven-javadoc-plugin what is it, from org.apache.maven.plugins
 - maven-project-info-reports-plugin, from org.apache.maven.plugins
