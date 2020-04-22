@@ -305,9 +305,6 @@
                 <rule>
                   <!-- CLASS, PACKAGE-->
                   <element>CLASS</element>
-                  <excludes>
-                    <exclude>com.brandmaker.cs.bestbuy.listener.rest.JAXRSConfiguration</exclude>
-                  </excludes>
                   <limits>
                     <limit>
                       <counter>LINE</counter>
