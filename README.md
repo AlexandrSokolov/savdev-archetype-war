@@ -1,6 +1,12 @@
 #### TODO list:
 - base test to get String, InputStream, json
+- react support
 - codestyle plugin (the last one)
+- split archetype to:
+  rest-war
+  rest-db-war
+  react-rest-db-war
+  react-rest-war
 - maven-javadoc-plugin what is it, from org.apache.maven.plugins
 - maven-project-info-reports-plugin, from org.apache.maven.plugins
 - exlcude certain java classes and packages from analyses of findbug, update docs

@@ -28,6 +28,7 @@
     <google.guava.version>18.0</google.guava.version>
     <apache.commons.commons-lang3.version>3.9</apache.commons.commons-lang3.version>
     <junit.version>4.12</junit.version>
+    <mockito.version>1.9.5</mockito.version>
 
     <liquibase.version>3.8.0</liquibase.version>
     <snakeyaml.version>1.25</snakeyaml.version>
@@ -126,6 +127,12 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
     <!-- TEST -->
@@ -309,7 +316,7 @@
                     <limit>
                       <counter>LINE</counter>
                       <value>COVEREDRATIO</value>
-                      <minimum>90%</minimum>
+                      <minimum>100%</minimum>
                     </limit>
                   </limits>
                 </rule>

@@ -8,24 +8,25 @@ import liquibase.resource.ResourceAccessor;
 import javax.annotation.Resource;
 import javax.enterprise.inject.Produces;
 import javax.sql.DataSource;
-import java.sql.SQLException;
 
 public class DbSchemaCreation {
 
+  static final String MASTER_CHANGE_LOG = "db/changelog/db.changelog-master.yml";
+
   @Resource(lookup = "${jtaDataSource}")
-  private DataSource myDataSource;
+  DataSource myDataSource;
 
   @Produces
   @LiquibaseType
   public CDILiquibaseConfig createConfig() {
     CDILiquibaseConfig config = new CDILiquibaseConfig();
-    config.setChangeLog("db/changelog/db.changelog-master.yml");
+    config.setChangeLog(MASTER_CHANGE_LOG);
     return config;
   }
 
   @Produces
   @LiquibaseType
-  public DataSource createDataSource() throws SQLException {
+  public DataSource createDataSource() {
     return myDataSource;
   }
 
