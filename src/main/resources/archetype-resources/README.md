@@ -44,11 +44,7 @@ If this feature is not needed remove:
 ### End of temporal block. 
 ]]#
 
-#[[
-#
-]]#
-
-#[[ ### ]]# ${projectDescription}
+#[[### ]]#${projectDescription}
 
 
 #[[
