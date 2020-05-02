@@ -35,6 +35,10 @@
 
     <bm-product-bom.version>${bm-product-bom}</bm-product-bom.version>
 
+    <frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
+    <node.version>v12.14.1</node.version>
+    <npm.version>6.13.4</npm.version>
+    <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
     <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
     <gmaven-plugin.version>1.0</gmaven-plugin.version>
     <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
@@ -150,6 +154,65 @@
 
     <plugins>
 
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>${frontend-maven-plugin.version}</version>
+        <configuration>
+          <workingDirectory>${basedir}/react</workingDirectory>
+          <installDirectory>${project.build.directory}</installDirectory>
+        </configuration>
+        <executions>
+          <!-- installs node and npm into ${installDirectory}/node -->
+          <execution>
+            <id>Install NodeJs and NPM</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <phase>process-sources</phase>
+            <configuration>
+              <nodeVersion>${node.version}</nodeVersion>
+              <npmVersion>${npm.version}</npmVersion>
+            </configuration>
+          </execution>
+          <execution>
+            <!-- installs all deps into ${workingDirectory}/node_modules-->
+            <id>Install NPM Dependencies</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>process-sources</phase>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>Run NodeJs compile</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>prepare-package</phase>
+            <configuration>
+              <arguments>run build</arguments>
+              <skipTests>true</skipTests>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${maven-war-plugin.version}</version>
+        <configuration>
+          <webResources>
+            <resource>
+              <directory>${basedir}/react/build</directory>
+              <targetPath>/</targetPath>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
 
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
