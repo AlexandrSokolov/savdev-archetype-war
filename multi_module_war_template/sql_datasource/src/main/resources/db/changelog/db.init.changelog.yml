@@ -29,6 +29,24 @@ databaseChangeLog:
                   type: bigint
                   constraints:
                     primaryKey: true
+              # is renamed in the next changelog
               - column:
                   name: old_name
                   type: varchar(255)
+              ####### number types START ###########
+              - column:
+                  name: smallestInt
+                  type: tinyint
+              - column:
+                  name: smallInt
+                  type: smallint
+              - column:
+                  name: number1
+                  type: number
+              - column:
+                  name: number2
+                  type: int
+              - column:
+                  name: bigNumber
+                  type: bigint
+              ####### number types END ###########
