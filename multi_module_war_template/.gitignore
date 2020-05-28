@@ -1,0 +1,11 @@
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# Maven build
+target/
+
+# npm
+node_modules/
+build/
+package-lock.json

@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.savdev.some.project</groupId>
+    <artifactId>some-project-deps</artifactId>
+    <version>1.0.0</version>
+    <relativePath>deps</relativePath>
+  </parent>
+
+  <artifactId>some-project-aggregator</artifactId>
+  <packaging>pom</packaging>
+  <name>Some Project Aggregator</name>
+
+  <url>http://www.project.com</url>
+
+  <description>Project Description</description>
+  <organization>
+    <name>Sav Dev</name>
+    <url>http://www.savdev.com</url>
+  </organization>
+
+  <modules>
+    <module>deps</module>
+    <module>domain_api</module>
+    <module>rest_api</module>
+    <module>sql_datasource</module>
+    <module>domain</module>
+    <module>front_end_war</module>
+  </modules>
+
+
+</project>

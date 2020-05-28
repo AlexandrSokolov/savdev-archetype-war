@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.savdev.mvn.archetype</groupId>
-  <artifactId>savdev-war</artifactId>
+  <artifactId>savdev-single-war-archetype</artifactId>
   <packaging>maven-archetype</packaging>
   <version>1.0.0</version>
 
-  <name>savdev.archetype-war</name>
+  <name>Archetype for a war application via a single Maven module</name>
 
   <url>http://savdev.com</url>
 

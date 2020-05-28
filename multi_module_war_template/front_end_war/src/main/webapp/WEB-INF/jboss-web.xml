@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<jboss-web>
+  <context-root>/some/project/url</context-root>
+  <security-domain flushOnSessionInvalidation="true">SecurityDomainName</security-domain>
+</jboss-web>
