@@ -1,5 +1,7 @@
 package com.savdev.some.project.api;
 
+import java.math.BigDecimal;
+
 public interface ExampleApi {
 
   long getId();
@@ -29,4 +31,20 @@ public interface ExampleApi {
   long getBigNumber();
 
   void setBigNumber(long bigNumber);
+
+  BigDecimal getMoney();
+
+  void setMoney(BigDecimal money);
+
+  float getFloatField();
+
+  void setFloatField(float floatField);
+
+  double getDoubleField();
+
+  void setDoubleField(double doubleField);
+
+  BigDecimal getDecimalField();
+
+  void setDecimalField(BigDecimal decimalField);
 }

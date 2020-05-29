@@ -50,3 +50,18 @@ databaseChangeLog:
                   name: bigNumber
                   type: bigint
               ####### number types END ###########
+
+              ####### decimal number types START ###########
+              - column:
+                  name: money
+                  type: decimal
+              - column:
+                  name: floatField
+                  type: float
+              - column:
+                  name: doubleField
+                  type: double
+              - column:
+                  name: decimalField
+                  type: decimal
+              ####### decimal number types END   ###########

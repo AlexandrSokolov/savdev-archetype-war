@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "example")
@@ -33,6 +34,13 @@ public class EntityExample implements ExampleApi {
   //liquibase type: bigint
   private long bigNumber;
 
+  private BigDecimal money;
+
+  private float floatField;
+
+  private double doubleField;
+
+  private BigDecimal decimalField;
 
   @Override
   public long getId() {
@@ -102,5 +110,45 @@ public class EntityExample implements ExampleApi {
   @Override
   public void setBigNumber(long bigNumber) {
     this.bigNumber = bigNumber;
+  }
+
+  @Override
+  public BigDecimal getMoney() {
+    return money;
+  }
+
+  @Override
+  public void setMoney(BigDecimal money) {
+    this.money = money;
+  }
+
+  @Override
+  public float getFloatField() {
+    return floatField;
+  }
+
+  @Override
+  public void setFloatField(float floatField) {
+    this.floatField = floatField;
+  }
+
+  @Override
+  public double getDoubleField() {
+    return doubleField;
+  }
+
+  @Override
+  public void setDoubleField(double doubleField) {
+    this.doubleField = doubleField;
+  }
+
+  @Override
+  public BigDecimal getDecimalField() {
+    return decimalField;
+  }
+
+  @Override
+  public void setDecimalField(BigDecimal decimalField) {
+    this.decimalField = decimalField;
   }
 }
