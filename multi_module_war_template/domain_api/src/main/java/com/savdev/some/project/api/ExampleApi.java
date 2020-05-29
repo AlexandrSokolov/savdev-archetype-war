@@ -2,6 +2,7 @@ package com.savdev.some.project.api;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -58,6 +59,10 @@ public interface ExampleApi {
   void setDecimalField(BigDecimal decimalField);
 
   //// date and time:
+
+  Instant getInstantField();
+
+  void setInstantField(Instant instantField);
 
   OffsetDateTime getOffsetDateTime();
 

@@ -37,10 +37,10 @@ databaseChangeLog:
 
               ####### number types START ###########
               - column:
-                  name: smallestInt
+                  name: smallest_int
                   type: tinyint
               - column:
-                  name: smallInt
+                  name: small_int
                   type: smallint
               - column:
                   name: number1
@@ -49,7 +49,7 @@ databaseChangeLog:
                   name: number2
                   type: int
               - column:
-                  name: bigNumber
+                  name: big_number
                   type: bigint
               ####### number types END ###########
 
@@ -73,6 +73,9 @@ databaseChangeLog:
 
 
               ####### date time types START ###########
+              - column:
+                  name: instant_field
+                  type: datetime
               - column:
                   name: offset_date_time
                   type: datetime
