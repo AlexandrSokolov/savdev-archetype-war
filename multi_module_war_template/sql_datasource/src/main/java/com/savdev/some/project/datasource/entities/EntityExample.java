@@ -1,9 +1,12 @@
 package com.savdev.some.project.datasource.entities;
 
 import com.savdev.some.project.api.ExampleApi;
+import com.savdev.some.project.api.Status;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +30,9 @@ public class EntityExample implements ExampleApi {
   private long id;
 
   private String name;
+
+  @Enumerated(EnumType.STRING)
+  private Status status;
 
   //liquibase type: tinyint
   @Column(name="smallest_int")
@@ -118,6 +124,16 @@ public class EntityExample implements ExampleApi {
   @Override
   public void setName(String name) {
     this.name = name;
+  }
+
+  @Override
+  public Status getStatus() {
+    return status;
+  }
+
+  @Override
+  public void setStatus(Status status) {
+    this.status = status;
   }
 
   @Override

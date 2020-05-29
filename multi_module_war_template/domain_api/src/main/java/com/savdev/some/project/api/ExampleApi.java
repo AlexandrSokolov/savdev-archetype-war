@@ -20,6 +20,10 @@ public interface ExampleApi {
 
   void setName(String name);
 
+  Status getStatus();
+
+  void setStatus(Status status);
+
   short getSmallestInt();
 
   void setSmallestInt(short smallestInt);

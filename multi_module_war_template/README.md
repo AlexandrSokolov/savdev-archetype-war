@@ -16,3 +16,6 @@ security rdomain name:
 SecurityRole in web.xml
 
 datasource configuration:
+
+
+insert into example values(1, 'some name', 'CREATED', 1, 22, 333, 4444, 5555555555, 100932.02, 25.3, 35.2, 42343.43253423, now(), now(), now(), now(), now(), now(), now(), now(), now(), now(), 'another name value');
