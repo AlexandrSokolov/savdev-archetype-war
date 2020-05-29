@@ -8,6 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "example")
@@ -34,6 +41,7 @@ public class EntityExample implements ExampleApi {
   //liquibase type: bigint
   private long bigNumber;
 
+  //liquibase type: currency
   private BigDecimal money;
 
   private float floatField;
@@ -41,6 +49,35 @@ public class EntityExample implements ExampleApi {
   private double doubleField;
 
   private BigDecimal decimalField;
+
+  ///////   new java 8 date time api ///////////////////
+  //liquibase: datetime
+  private OffsetDateTime offsetDateTime;
+
+  //liquibase: datetime
+  private ZonedDateTime zonedDateTime;
+
+  //liquibase: datetime
+  private LocalDateTime localDateTime;
+
+  //liquibase: date
+  private LocalDate localDate;
+
+  //liquibase: time
+  private LocalTime localTime;
+
+  ///////   old java 8 date time api ///////////////////
+  //liquibase: datetime
+  private Date javaDate;
+
+  //liquibase: date
+  private Date javaOnlyDate;
+
+  //liquibase: datetime
+  private java.sql.Date sqlDate;
+
+  //liquibase: timestamp
+  private Timestamp sqlTimestamp;
 
   @Override
   public long getId() {
@@ -150,5 +187,95 @@ public class EntityExample implements ExampleApi {
   @Override
   public void setDecimalField(BigDecimal decimalField) {
     this.decimalField = decimalField;
+  }
+
+  @Override
+  public OffsetDateTime getOffsetDateTime() {
+    return offsetDateTime;
+  }
+
+  @Override
+  public void setOffsetDateTime(OffsetDateTime offsetDateTime) {
+    this.offsetDateTime = offsetDateTime;
+  }
+
+  @Override
+  public ZonedDateTime getZonedDateTime() {
+    return zonedDateTime;
+  }
+
+  @Override
+  public void setZonedDateTime(ZonedDateTime zonedDateTime) {
+    this.zonedDateTime = zonedDateTime;
+  }
+
+  @Override
+  public LocalDateTime getLocalDateTime() {
+    return localDateTime;
+  }
+
+  @Override
+  public void setLocalDateTime(LocalDateTime localDateTime) {
+    this.localDateTime = localDateTime;
+  }
+
+  @Override
+  public LocalDate getLocalDate() {
+    return localDate;
+  }
+
+  @Override
+  public void setLocalDate(LocalDate localDate) {
+    this.localDate = localDate;
+  }
+
+  @Override
+  public LocalTime getLocalTime() {
+    return localTime;
+  }
+
+  @Override
+  public void setLocalTime(LocalTime localTime) {
+    this.localTime = localTime;
+  }
+
+  @Override
+  public Date getJavaDate() {
+    return javaDate;
+  }
+
+  @Override
+  public void setJavaDate(Date javaDate) {
+    this.javaDate = javaDate;
+  }
+
+  @Override
+  public Date getJavaOnlyDate() {
+    return javaOnlyDate;
+  }
+
+  @Override
+  public void setJavaOnlyDate(Date javaOnlyDate) {
+    this.javaOnlyDate = javaOnlyDate;
+  }
+
+  @Override
+  public java.sql.Date getSqlDate() {
+    return sqlDate;
+  }
+
+  @Override
+  public void setSqlDate(java.sql.Date sqlDate) {
+    this.sqlDate = sqlDate;
+  }
+
+  @Override
+  public Timestamp getSqlTimestamp() {
+    return sqlTimestamp;
+  }
+
+  @Override
+  public void setSqlTimestamp(Timestamp sqlTimestamp) {
+    this.sqlTimestamp = sqlTimestamp;
   }
 }

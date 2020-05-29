@@ -33,6 +33,8 @@ databaseChangeLog:
               - column:
                   name: old_name
                   type: varchar(255)
+
+
               ####### number types START ###########
               - column:
                   name: smallestInt
@@ -51,17 +53,53 @@ databaseChangeLog:
                   type: bigint
               ####### number types END ###########
 
+
+
               ####### decimal number types START ###########
               - column:
                   name: money
-                  type: decimal
+                  type: currency
               - column:
-                  name: floatField
+                  name: float_field
                   type: float
               - column:
-                  name: doubleField
+                  name: double_field
                   type: double
               - column:
-                  name: decimalField
+                  name: decimal_field
                   type: decimal
               ####### decimal number types END   ###########
+
+
+
+              ####### date time types START ###########
+              - column:
+                  name: offset_date_time
+                  type: datetime
+              - column:
+                  name: zoned_date_time
+                  type: datetime
+              - column:
+                  name: local_date_time
+                  type: datetime
+              - column:
+                  name: local_date
+                  type: date
+              - column:
+                  name: local_time
+                  type: time
+
+              - column:
+                  name: java_date
+                  type: datetime
+              - column:
+                  name: java_only_date
+                  type: date
+              - column:
+                  name: sql_date
+                  type: date
+              - column:
+                  name: sql_timestamp
+                  type: timestamp
+
+              ####### date time types END   ###########
