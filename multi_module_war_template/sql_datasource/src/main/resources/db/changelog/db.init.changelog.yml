@@ -63,7 +63,9 @@ databaseChangeLog:
               ####### decimal number types START ###########
               - column:
                   name: money
-                  type: currency
+                  # see https://github.com/liquibase/liquibase/issues/1190
+                  # type: currency
+                  type: decimal(15,4)
               - column:
                   name: float_field
                   type: float
@@ -72,7 +74,8 @@ databaseChangeLog:
                   type: double
               - column:
                   name: decimal_field
-                  type: decimal
+                  # default decimal have no values after comma
+                  type: decimal(15,4)
               ####### decimal number types END   ###########
 
 

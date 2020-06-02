@@ -1,32 +1,23 @@
 package com.savdev.some.project.rest.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.savdev.some.project.rest.jackson.JacksonProvider;
 
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.TimeZone;
 
 @Provider
 public class ServerSideJacksonProvider implements ContextResolver<ObjectMapper> {
 
-  private ObjectMapper mapper;
+  private ObjectMapper objectMapper;
 
-  public ServerSideJacksonProvider() {
-    this.mapper = createObjectMapper();
+  public ServerSideJacksonProvider(){
+    this.objectMapper = JacksonProvider.instance().objectMapper();
   }
 
   @Override
   public ObjectMapper getContext(Class<?> aClass) {
-    return mapper;
+    return objectMapper;
   }
 
-  private ObjectMapper createObjectMapper() {
-    ObjectMapper mapper = new ObjectMapper();
-    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    dateFormat.setTimeZone(TimeZone.getDefault());
-    mapper.setDateFormat(dateFormat);
-    return mapper;
-  }
 }

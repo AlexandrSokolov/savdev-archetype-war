@@ -18,6 +18,7 @@ public class JAXRSConfiguration extends Application {
   public Set<Class<?>> getClasses() {
     return Sets.newHashSet(
       AppRestService.class,
-      ServerSideJacksonProvider.class);
+      ServerSideJacksonProvider.class
+    );
   }
 }
