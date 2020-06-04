@@ -1,16 +1,8 @@
-package com.savdev.some.project.datasource.entities;
+package com.savdev.some.project.rest.api.dto;
 
 import com.savdev.some.project.api.ExampleApi;
 import com.savdev.some.project.api.Status;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -21,97 +13,50 @@ import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
-@Entity
-@Table(name = "example")
-public class EntityExample implements ExampleApi {
+public class ExampleDto implements ExampleApi {
 
-  public EntityExample(){}
-
-  public EntityExample(final ExampleApi exampleApi){
-    this.id = exampleApi.getId();
-    this.name = exampleApi.getName();
-    this.status = exampleApi.getStatus();
-  }
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private long id;
 
   private String name;
 
-  @Enumerated(EnumType.STRING)
   private Status status;
 
-  //liquibase type: tinyint
-  @Column(name="smallest_int")
   private short smallestInt;
 
-  //liquibase type: smallint
-  @Column(name="small_int")
   private short smallInt;
 
-  //liquibase type: number
   private int number1;
 
-  //liquibase type: int
   private int number2;
 
-  //liquibase type: bigint
-  @Column(name="big_number")
   private long bigNumber;
 
-  //liquibase type: currency
   private BigDecimal money;
 
-  @Column(name="float_field")
   private float floatField;
 
-  @Column(name="double_field")
   private double doubleField;
 
-  @Column(name="decimal_field")
   private BigDecimal decimalField;
 
-  ///////   new java 8 date time api ///////////////////
-  //liquibase: datetime
-  @Column(name="instant_field")
   private Instant instantField;
 
-  //liquibase: datetime
-  @Column(name="offset_date_time")
   private OffsetDateTime offsetDateTime;
 
-  //liquibase: datetime
-  @Column(name="zoned_date_time")
   private ZonedDateTime zonedDateTime;
 
-  //liquibase: datetime
-  @Column(name="local_date_time")
   private LocalDateTime localDateTime;
 
-  //liquibase: date
-  @Column(name="local_date")
   private LocalDate localDate;
 
-  //liquibase: time
-  @Column(name="local_time")
   private LocalTime localTime;
 
-  ///////   old java 8 date time api ///////////////////
-  //liquibase: datetime
-  @Column(name="java_date")
   private Date javaDate;
 
-  //liquibase: date
-  @Column(name="java_only_date")
   private Date javaOnlyDate;
 
-  //liquibase: datetime
-  @Column(name="sql_date")
   private java.sql.Date sqlDate;
 
-  //liquibase: timestamp
-  @Column(name="sql_timestamp")
   private Timestamp sqlTimestamp;
 
   @Override

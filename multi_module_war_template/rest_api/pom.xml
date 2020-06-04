@@ -16,6 +16,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.savdev.some.project</groupId>
+      <artifactId>some-project-domain-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
     </dependency>
