@@ -2,6 +2,7 @@ package com.savdev.some.project.rest.config;
 
 import com.google.common.collect.Sets;
 import com.savdev.some.project.rest.app.AppRestService;
+import com.savdev.some.project.rest.exception.mappers.WebApplicationExceptionMapper;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -18,7 +19,8 @@ public class JAXRSConfiguration extends Application {
   public Set<Class<?>> getClasses() {
     return Sets.newHashSet(
       AppRestService.class,
-      ServerSideJacksonProvider.class
+      ServerSideJacksonProvider.class,
+      WebApplicationExceptionMapper.class
     );
   }
 }

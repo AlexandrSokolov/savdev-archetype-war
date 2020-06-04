@@ -27,7 +27,7 @@ public class EntityExample implements ExampleApi {
 
   public EntityExample(){}
 
-  public EntityExample(final ExampleApi exampleApi){
+  public EntityExample update(final ExampleApi exampleApi){
     this.id = exampleApi.getId();
     this.name = exampleApi.getName();
     this.status = exampleApi.getStatus();
@@ -54,6 +54,8 @@ public class EntityExample implements ExampleApi {
     this.javaOnlyDate = exampleApi.getJavaOnlyDate();
     this.sqlDate = exampleApi.getSqlDate();
     this.sqlTimestamp = exampleApi.getSqlTimestamp();
+
+    return this;
   }
 
   @Id

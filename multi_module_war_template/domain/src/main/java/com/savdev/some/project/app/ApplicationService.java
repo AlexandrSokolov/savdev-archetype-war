@@ -21,12 +21,24 @@ public class ApplicationService {
 
   public ExampleApi add(ExampleApi item){
     return entityExampleRepository.save(
-      new EntityExample(item));
+      new EntityExample().update(item));
+  }
+
+  public ExampleApi validate4creation(ExampleApi item) {
+    if ( item.getId() != 0 ) {
+      throw new IllegalStateException("Id cannot be set for a new item");
+    }
+    return item;
+  }
+
+  public ExampleApi validate4update(ExampleApi item) {
+    return item;
   }
 
   public ExampleApi update(ExampleApi item){
     return entityExampleRepository.save(
-      new EntityExample(item));
+      entityExampleRepository.getOne(item.getId())
+        .update(item));
   }
 
   public void delete(long id){

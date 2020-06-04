@@ -8,6 +8,9 @@ import com.savdev.some.project.rest.api.dto.ExampleDto;
 import javax.inject.Inject;
 import java.util.List;
 
+import static com.savdev.some.project.rest.app.JaxRsHandlerUtils.handle;
+import static com.savdev.some.project.rest.app.JaxRsHandlerUtils.validateAndHandle;
+
 public class AppRestService implements AppRestApi {
 
   @Inject
@@ -15,22 +18,28 @@ public class AppRestService implements AppRestApi {
 
   @Override
   public List<ExampleApi> items() {
-    return application.items();
+    return handle(application::items);
   }
 
   @Override
   public ExampleApi add(final ExampleDto item) {
-    return application.add(item);
+    return validateAndHandle(
+      item,
+      application::validate4creation,
+      application::add);
   }
 
   @Override
   public ExampleApi update(long id, ExampleDto item) {
     item.setId(id);
-    return application.update(item);
+    return validateAndHandle(
+      item,
+      application::validate4update,
+      application::update);
   }
 
   @Override
   public void delete(long id) {
-    application.delete(id);
+    handle(id, application::delete);
   }
 }
