@@ -31,6 +31,29 @@ public class EntityExample implements ExampleApi {
     this.id = exampleApi.getId();
     this.name = exampleApi.getName();
     this.status = exampleApi.getStatus();
+
+    this.smallestInt = exampleApi.getSmallestInt();
+    this.smallInt = exampleApi.getSmallInt();
+    this.number1 = exampleApi.getNumber1();
+    this.number2 = exampleApi.getNumber2();
+    this.bigNumber = exampleApi.getBigNumber();
+
+    this.money = exampleApi.getMoney();
+    this.floatField = exampleApi.getFloatField();
+    this.doubleField = exampleApi.getDoubleField();
+    this.decimalField = exampleApi.getDecimalField();
+
+    this.instantField = exampleApi.getInstantField();
+    this.offsetDateTime = exampleApi.getOffsetDateTime();
+    this.zonedDateTime = exampleApi.getZonedDateTime();
+    this.localDateTime = exampleApi.getLocalDateTime();
+    this.localDate = exampleApi.getLocalDate();
+    this.localTime = exampleApi.getLocalTime();
+
+    this.javaDate = exampleApi.getJavaDate();
+    this.javaOnlyDate = exampleApi.getJavaOnlyDate();
+    this.sqlDate = exampleApi.getSqlDate();
+    this.sqlTimestamp = exampleApi.getSqlTimestamp();
   }
 
   @Id

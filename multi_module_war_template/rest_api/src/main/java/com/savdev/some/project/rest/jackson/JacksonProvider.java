@@ -5,7 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
-import com.savdev.some.project.rest.jackson.serializer.DateTimeFormatterProvider;
+import com.savdev.some.project.rest.jackson.deserializer.InstantDeserializer;
+import com.savdev.some.project.rest.jackson.deserializer.LocalDateDeserializer;
+import com.savdev.some.project.rest.jackson.deserializer.LocalDateTimeDeserializer;
+import com.savdev.some.project.rest.jackson.deserializer.LocalTimeDeserializer;
+import com.savdev.some.project.rest.jackson.deserializer.OffsetDateTimeDeserializer;
+import com.savdev.some.project.rest.jackson.deserializer.ZonedDateTimeDeserializer;
 import com.savdev.some.project.rest.jackson.serializer.InstantSerializer;
 import com.savdev.some.project.rest.jackson.serializer.LocalDateSerializer;
 import com.savdev.some.project.rest.jackson.serializer.LocalDateTimeSerializer;
@@ -80,6 +85,7 @@ public class JacksonProvider extends JacksonJaxbJsonProvider  {
 
     SimpleModule module = new SimpleModule();
     configureSerializers(module);
+    configureDeserializers(module);
     mapper.registerModule(module);
   }
 
@@ -91,5 +97,14 @@ public class JacksonProvider extends JacksonJaxbJsonProvider  {
     module.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer());
     module.addSerializer(LocalDate.class, new LocalDateSerializer());
     module.addSerializer(LocalTime.class, new LocalTimeSerializer());
+  }
+
+  private void configureDeserializers(final SimpleModule module) {
+    module.addDeserializer(Instant.class, new InstantDeserializer());
+    module.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
+    module.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
+    module.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer());
+    module.addDeserializer(LocalDate.class, new LocalDateDeserializer());
+    module.addDeserializer(LocalTime.class, new LocalTimeDeserializer());
   }
 }

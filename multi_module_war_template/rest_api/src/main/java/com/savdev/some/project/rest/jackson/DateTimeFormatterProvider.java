@@ -1,4 +1,4 @@
-package com.savdev.some.project.rest.jackson.serializer;
+package com.savdev.some.project.rest.jackson;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
