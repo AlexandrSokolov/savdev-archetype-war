@@ -288,41 +288,41 @@ public class EntityExample implements ExampleApi {
 
   @Override
   public Date getJavaDate() {
-    return javaDate;
+    return javaDate != null ? (Date) javaDate.clone() : null;
   }
 
   @Override
   public void setJavaDate(Date javaDate) {
-    this.javaDate = javaDate;
+    this.javaDate = javaDate != null ? (Date) javaDate.clone() : null;
   }
 
   @Override
   public Date getJavaOnlyDate() {
-    return javaOnlyDate;
+    return javaOnlyDate != null ? (Date) javaOnlyDate.clone() : null;
   }
 
   @Override
   public void setJavaOnlyDate(Date javaOnlyDate) {
-    this.javaOnlyDate = javaOnlyDate;
+    this.javaOnlyDate = javaOnlyDate != null ? (Date) javaOnlyDate.clone() : null;
   }
 
   @Override
   public java.sql.Date getSqlDate() {
-    return sqlDate;
+    return sqlDate != null ? (java.sql.Date) sqlDate.clone() : null;
   }
 
   @Override
   public void setSqlDate(java.sql.Date sqlDate) {
-    this.sqlDate = sqlDate;
+    this.sqlDate = sqlDate != null ? (java.sql.Date) sqlDate.clone() : null;
   }
 
   @Override
   public Timestamp getSqlTimestamp() {
-    return sqlTimestamp;
+    return sqlTimestamp != null ? (Timestamp) sqlTimestamp.clone() : null;
   }
 
   @Override
   public void setSqlTimestamp(Timestamp sqlTimestamp) {
-    this.sqlTimestamp = sqlTimestamp;
+    this.sqlTimestamp = sqlTimestamp != null ? (Timestamp) sqlTimestamp.clone() : null;
   }
 }
