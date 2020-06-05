@@ -17,11 +17,11 @@ public class WebApplicationExceptionMapper implements ExceptionMapper<WebApplica
       .build();
   }
 
-  private String extractOriginalCause(final Exception e){
+  private String extractOriginalCause(final Throwable e){
     if (e.getCause() != null
         //to avoid stackoverflow:
         && e != e.getCause().getCause()){
-      return extractOriginalCause((Exception) e.getCause());
+      return extractOriginalCause(e.getCause());
     } else {
       return e.getMessage();
     }

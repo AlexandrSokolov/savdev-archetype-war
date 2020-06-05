@@ -2,6 +2,8 @@ package com.savdev.some.project.rest.api.dto;
 
 import com.savdev.some.project.api.ExampleApi;
 import com.savdev.some.project.api.Status;
+import com.webcohesion.enunciate.metadata.DocumentationExample;
+import com.webcohesion.enunciate.metadata.rs.TypeHint;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -13,6 +15,12 @@ import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
+import static com.savdev.some.project.rest.documentation.DocumentationExamples.DATETIME_VALUE;
+import static com.savdev.some.project.rest.documentation.DocumentationExamples.MONEY_VALUE;
+
+/**
+ * Rest Dto object for example item
+ */
 public class ExampleDto implements ExampleApi {
 
   private long id;
@@ -139,6 +147,7 @@ public class ExampleDto implements ExampleApi {
     this.bigNumber = bigNumber;
   }
 
+  @DocumentationExample(value = MONEY_VALUE, type=@TypeHint(BigDecimal.class))
   @Override
   public BigDecimal getMoney() {
     return money;
@@ -169,6 +178,7 @@ public class ExampleDto implements ExampleApi {
     this.doubleField = doubleField;
   }
 
+  @DocumentationExample(value = "2345.7578", type=@TypeHint(BigDecimal.class))
   @Override
   public BigDecimal getDecimalField() {
     return decimalField;
@@ -179,6 +189,7 @@ public class ExampleDto implements ExampleApi {
     this.decimalField = decimalField;
   }
 
+  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(Instant.class))
   @Override
   public Instant getInstantField() {
     return instantField;
@@ -189,6 +200,7 @@ public class ExampleDto implements ExampleApi {
     this.instantField = instantField;
   }
 
+  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(OffsetDateTime.class) )
   @Override
   public OffsetDateTime getOffsetDateTime() {
     return offsetDateTime;
@@ -199,6 +211,7 @@ public class ExampleDto implements ExampleApi {
     this.offsetDateTime = offsetDateTime;
   }
 
+  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(ZonedDateTime.class) )
   @Override
   public ZonedDateTime getZonedDateTime() {
     return zonedDateTime;
@@ -209,6 +222,7 @@ public class ExampleDto implements ExampleApi {
     this.zonedDateTime = zonedDateTime;
   }
 
+  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(LocalDateTime.class) )
   @Override
   public LocalDateTime getLocalDateTime() {
     return localDateTime;
@@ -239,6 +253,7 @@ public class ExampleDto implements ExampleApi {
     this.localTime = localTime;
   }
 
+  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(Date.class) )
   @Override
   public Date getJavaDate() {
     return javaDate != null ? (Date) javaDate.clone() : null;
@@ -249,6 +264,7 @@ public class ExampleDto implements ExampleApi {
     this.javaDate = javaDate != null ? (Date) javaDate.clone() : null;
   }
 
+  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(Date.class) )
   @Override
   public Date getJavaOnlyDate() {
     return javaOnlyDate != null ? (Date) javaOnlyDate.clone() : null;
@@ -259,6 +275,7 @@ public class ExampleDto implements ExampleApi {
     this.javaOnlyDate = javaOnlyDate != null ? (Date) javaOnlyDate.clone() : null;
   }
 
+  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(java.sql.Date.class) )
   @Override
   public java.sql.Date getSqlDate() {
     return sqlDate != null ? (java.sql.Date) sqlDate.clone() : null;
@@ -269,6 +286,7 @@ public class ExampleDto implements ExampleApi {
     this.sqlDate = sqlDate != null ? (java.sql.Date) sqlDate.clone() : null;
   }
 
+  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(Timestamp.class) )
   @Override
   public Timestamp getSqlTimestamp() {
     return sqlTimestamp != null ? (Timestamp) sqlTimestamp.clone() : null;

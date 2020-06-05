@@ -1,0 +1,106 @@
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.13.1.xsd">
+
+  <title>Some Project Rest API</title>
+  <description>
+    <![CDATA[
+      <h2>Rest API Documentation</h2>
+    ]]>
+  </description>
+  <copyright>savdev.com</copyright>
+  <contact email="a@savdev.com" name="Some Project Rest API" />
+
+  <api-classes>
+    <include pattern="com.savdev.some.project.rest.**" />
+    <include pattern="com.savdev.some.project.api.**" />
+    <include pattern="java.**" />
+    <exclude pattern="**" />
+  </api-classes>
+
+  <modules>
+    <!--    see also the attibute: freemarkerTemplate="template.fmt"-->
+    <docs
+      docsSubdir="enunciate/docs"
+      disableResourceLinks="true"
+      includeApplicationPath="true"
+      disabled="false"
+    />
+    <!--
+    The following annotation:
+    @DocumentationExample(value= "2020-05-27'T'124:35:75'Z'", type=@TypeHint(Instant.class))
+    forces it to fail with an exception:
+    [ERROR] Failed to execute goal com.webcohesion.enunciate:enunciate-maven-plugin:2.13.1:docs (default) on project some-project-rest-api: com.fasterxml.jackson.core.JsonParseException: Unexpected character ('-' (code 45)): was expecting comma to separate Object entries
+    [ERROR]  at [Source: (FileReader); line: 287, column: 30]
+    Content of line 287, see example attribute:
+    "instantField" : {
+      "example" : 2020-05-26'T'124:35:75'Z',
+      "readOnly" : false,
+
+      enable swagger after fixing it
+      -->
+    <swagger
+      host="savdev.com"
+      basePath="/some/project/url/rest"
+      disabled="true">
+      <scheme>https</scheme>
+    </swagger>
+    <jackson
+      dateFormat="string"
+      disabled="false"/>
+    <jaxrs
+      groupBy="class"
+      disabled="false"
+      path-sort-strategy="depth_first"
+      datatype-detection="aggressive">
+      <application path="/some/project/url/rest"/>
+    </jaxrs>
+
+    <java-json-client
+      jarName="some-project-java-json-client.jar"
+      groupId="com.savdev.some.project.rest.client"
+      artifactId="rest-client">
+      <package-conversions>
+        <convert from="com.savdev.some.project.rest.api" to="com.savdev.some.project.rest.api.client"/>
+        <application path="/some/project/url/rest"/>
+      </package-conversions>
+    </java-json-client>
+
+    <javascript-client>
+      <package-conversions>
+        <convert from="com.savdev.some.project.rest.api" to="com.savdev.some.project.rest.api.client"/>
+        <application path="/some/project/url/rest"/>
+      </package-conversions>
+    </javascript-client>
+
+    <spring-web
+      groupBy="class"
+      datatype-detection="aggressive">
+      <application path="/some/project/url/rest"/>
+    </spring-web>
+
+    <!--    disabled modules: -->
+    <jackson1 disabled="true" />
+
+    <jaxb disabled="true" />
+    <jaxws disabled="true" />
+    <java-xml-client disabled="true" />
+
+    <gwt-json-overlay disabled="true" />
+    <idl disabled="true" />
+
+    <c-xml-client disabled="true" />
+    <csharp-xml-client disabled="true" />
+    <obj-c-xml-client disabled="true" />
+
+    <php-json-client disabled="true" />
+    <php-xml-client disabled="true" />
+
+    <ruby-json-client disabled="true" />
+
+  </modules>
+
+  <warnings>
+    <disable name="source-files-not-found"/>
+  </warnings>
+
+</enunciate>

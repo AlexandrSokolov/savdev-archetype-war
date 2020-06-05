@@ -17,6 +17,9 @@ import java.util.List;
 
 import static com.savdev.some.project.rest.api.AppRestApi.SERVICE_REST_URL;
 
+/**
+ * Rest Application Service
+ */
 @Path(SERVICE_REST_URL)
 @Produces(MediaType.APPLICATION_JSON)
 public interface AppRestApi {

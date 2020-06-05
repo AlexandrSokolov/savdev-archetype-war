@@ -32,6 +32,10 @@
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-json-provider</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.webcohesion.enunciate</groupId>
+      <artifactId>enunciate-core-annotations</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
@@ -47,6 +51,10 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.webcohesion.enunciate</groupId>
+        <artifactId>enunciate-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

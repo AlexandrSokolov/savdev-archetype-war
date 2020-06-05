@@ -9,6 +9,14 @@ SecurityDomainName, SecurityRole
 /some/project/url
 { "/some/project/url/rest/*": "/$1" }
 
+<title>Some Project Web Application</title>
+  <description package="com.webcohesion.enunciate.sample"/>
+  <copyright>savdev.com</copyright>
+  <contact email="alex@some.com" name="Some Project Rest API" />
+
+<application path="/some/project/url/rest"/>
+
+yyyy-MM-dd'T'HH:mm:ss'Z'
 
 standalone configuration:
 security rdomain name: 
