@@ -311,7 +311,13 @@ public class ExampleDto implements ExampleApi {
     this.javaOnlyDate = javaOnlyDate != null ? (Date) javaOnlyDate.clone() : null;
   }
 
-  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(java.sql.Date.class) )
+  /**
+   * DocumentationExample is not applied correctly for java.sql.Date,
+   *  see https://github.com/stoicflame/enunciate/issues/1040
+   *
+   * @return
+   */
+  //@DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(java.sql.Date.class) )
   @Override
   public java.sql.Date getSqlDate() {
     return sqlDate != null ? (java.sql.Date) sqlDate.clone() : null;

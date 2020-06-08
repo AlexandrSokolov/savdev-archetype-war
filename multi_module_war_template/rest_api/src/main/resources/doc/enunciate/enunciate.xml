@@ -26,24 +26,9 @@
       includeApplicationPath="true"
       disabled="false"
     />
-    <!--
-    The following annotation:
-    @DocumentationExample(value= "2020-05-27'T'124:35:75'Z'", type=@TypeHint(Instant.class))
-    forces it to fail with an exception:
-    [ERROR] Failed to execute goal com.webcohesion.enunciate:enunciate-maven-plugin:2.13.1:docs (default) on project some-project-rest-api: com.fasterxml.jackson.core.JsonParseException: Unexpected character ('-' (code 45)): was expecting comma to separate Object entries
-    [ERROR]  at [Source: (FileReader); line: 287, column: 30]
-    Content of line 287, see example attribute:
-    "instantField" : {
-      "example" : 2020-05-26'T'124:35:75'Z',
-      "readOnly" : false,
-
-      enable swagger after fixing it
-      -->
     <swagger
-      host="savdev.com"
       basePath="/some/project/url/rest"
-      disabled="true">
-      <scheme>https</scheme>
+      disabled="false">
     </swagger>
     <jackson
       dateFormat="string"
