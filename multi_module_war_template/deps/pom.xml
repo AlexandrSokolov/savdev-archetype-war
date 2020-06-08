@@ -136,7 +136,7 @@
         <groupId>com.webcohesion.enunciate</groupId>
         <artifactId>enunciate-core-annotations</artifactId>
         <version>${enunciate.version}</version>
-        <scope>compile</scope>
+        <scope>provided</scope>
       </dependency>
 
       <!-- TEST -->
