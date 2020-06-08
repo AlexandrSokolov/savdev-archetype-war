@@ -218,7 +218,13 @@
                 <directory>${basedir}/react/build</directory>
                 <targetPath>/</targetPath>
               </resource>
+              <resource>
+                <!-- this is relative to the pom.xml directory -->
+                <directory>${basedir}/../rest_api/target/enunciate/docs</directory>
+                <targetPath>enunciate/docs</targetPath>
+              </resource>
             </webResources>
+
           </configuration>
         </plugin>
 
