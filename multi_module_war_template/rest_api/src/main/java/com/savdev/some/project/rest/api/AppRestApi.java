@@ -27,16 +27,16 @@ public interface AppRestApi {
   String SERVICE_REST_URL = "/examples";
 
   @GET
-  List<ExampleApi> items();
+  List<ExampleDto> items();
 
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
-  ExampleApi add(ExampleDto item);
+  ExampleDto add(ExampleDto item);
 
   @PUT
   @Path("{id : \\d+}") //support digit only
   @Consumes(MediaType.APPLICATION_JSON)
-  ExampleApi update(@PathParam("id") long id, ExampleDto item);
+  ExampleDto update(@PathParam("id") long id, ExampleDto item);
 
   @DELETE
   @Path("{id : \\d+}")
