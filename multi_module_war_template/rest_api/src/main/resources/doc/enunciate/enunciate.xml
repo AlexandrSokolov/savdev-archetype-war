@@ -5,6 +5,7 @@
   <description>
     <![CDATA[
       <h2>Rest API Documentation</h2>
+      <p>Root context: <b>/some/project/url</b></p>
     ]]>
   </description>
   <copyright>savdev.com</copyright>

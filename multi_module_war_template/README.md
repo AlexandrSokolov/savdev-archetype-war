@@ -16,6 +16,10 @@ SecurityDomainName, SecurityRole
 
 <application path="/some/project/url/rest"/>
 
+docs:
+http://localhost:18080/some/project/url/enunciate/docs/json_ExampleDto.html
+file:///home/alexandr/projects/maven/template-war/multi_module_war_template/rest_api/target/enunciate/docs/index.html
+
 yyyy-MM-dd'T'HH:mm:ss'Z'
 
 standalone configuration:
