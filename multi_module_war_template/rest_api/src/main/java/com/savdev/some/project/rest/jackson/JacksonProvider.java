@@ -1,5 +1,6 @@
 package com.savdev.some.project.rest.jackson;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -68,6 +69,15 @@ public class JacksonProvider extends JacksonJaxbJsonProvider  {
     * java.sql.Timestamp
     */
     mapper.setDateFormat(DateTimeFormatterProvider.instance().dateFormat());
+
+    //to be able to apply jackson and enunciate annotations on private fields:
+    //see also: https://github.com/stoicflame/enunciate/issues/1035
+    mapper.setVisibility(
+      mapper
+        .getSerializationConfig()
+        .getDefaultVisibilityChecker()
+        .withFieldVisibility(JsonAutoDetect.Visibility.ANY)
+        .withGetterVisibility(JsonAutoDetect.Visibility.ANY));
 
     // not default
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

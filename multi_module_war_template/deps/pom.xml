@@ -414,6 +414,7 @@
           <artifactId>enunciate-maven-plugin</artifactId>
           <version>${enunciate.version}</version>
           <configuration>
+            <skipEnunciate>false</skipEnunciate>
             <configFile>${project.resources[0].directory}/doc/enunciate/enunciate.xml</configFile>
             <!-- default value for docsDir: site-->
             <docsDir>${project.build.directory}</docsDir>

@@ -1,6 +1,5 @@
 package com.savdev.some.project.rest.api;
 
-import com.savdev.some.project.api.ExampleApi;
 import com.savdev.some.project.rest.api.dto.ExampleDto;
 
 import javax.ws.rs.Consumes;

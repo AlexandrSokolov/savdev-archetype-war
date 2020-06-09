@@ -1,6 +1,5 @@
 package com.savdev.some.project.rest.app;
 
-import com.savdev.some.project.api.ExampleApi;
 import com.savdev.some.project.app.ApplicationService;
 import com.savdev.some.project.rest.api.AppRestApi;
 import com.savdev.some.project.rest.api.dto.ExampleDto;
