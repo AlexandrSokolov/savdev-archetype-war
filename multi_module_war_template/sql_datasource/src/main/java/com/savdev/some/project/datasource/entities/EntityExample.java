@@ -10,6 +10,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -21,9 +25,40 @@ import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
+import static com.savdev.some.project.datasource.entities.EntityExample.Persistence.COLUMN_NAME;
+import static com.savdev.some.project.datasource.entities.EntityExample.Persistence.ENTITY_NAME;
+import static com.savdev.some.project.datasource.entities.EntityExample.Persistence.TABLE_NAME;
+
 @Entity
-@Table(name = "example")
+@Table(name = TABLE_NAME)
+@NamedQueries(
+  @NamedQuery(
+    name = EntityExample.Queries.BY_NAME,
+    query = "SELECT e FROM " + ENTITY_NAME + " e WHERE " + COLUMN_NAME + " = ?1")
+)
+@NamedNativeQueries(
+  @NamedNativeQuery(
+    name = EntityExample.Queries.NATIVE_BY_NAME,
+    query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " = ?", resultClass = EntityExample.class)
+)
 public class EntityExample implements ExampleApi {
+
+  public interface Persistence {
+    String ENTITY_NAME = "EntityExample"; //same as entit
+    String TABLE_NAME = "example";
+
+    String COLUMN_NAME = "name";
+  }
+
+  /**
+   * To use with Spring Data Jpa, query name must start with entity name, then dot, then method name,
+   * for instance the following methods will be invoked for queries:
+   *
+   */
+  public interface Queries {
+    String BY_NAME = ENTITY_NAME + ".findByName";
+    String NATIVE_BY_NAME = ENTITY_NAME + ".findByNameNative";
+  }
 
   public EntityExample(){}
 
@@ -62,6 +97,7 @@ public class EntityExample implements ExampleApi {
   @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private long id;
 
+  @Column(name=COLUMN_NAME, unique = false, nullable = true, length = 1024)
   private String name;
 
   @Enumerated(EnumType.STRING)
