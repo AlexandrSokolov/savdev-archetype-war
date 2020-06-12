@@ -1,3 +1,29 @@
+##### Maven multi-module project template
+
+This project is a template for a custom maven archetype generation and installation.
+
+The project is a Maven multi-module project.
+
+#### Usage:
+
+To install custom Maven archetype locally, run: 
+
+```./installArchetype.sh``` 
+
+To generate project from the installed archetype, run:
+
+```
+mvn TODO
+```
+
+`installArchetype.sh` script performs:
+1. generates a custom archetype
+2. updates certain values in the generated files with archetype variables
+3. installs the updated custom archetype locally
+
+
+------------------------------------------------
+
 Some Project - visible name
 some.project - package
 some-project - artifact name
