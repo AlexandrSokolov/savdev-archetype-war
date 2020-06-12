@@ -12,6 +12,11 @@ echoStatus () {
   echo -e "[\e[01;34mINFO\e[m] \e[01;34m$1\e[m"
 }
 
+echoInfo "To be able to install the archetype, all modules must be installed into the Maven local repository"
+echoInfo "To do that, run 'mvn clean install' first, before running this script"
+echoInfo "You can delete all the installed artifacts manually with 'rm -rf ~/.m2/repository/com/savdev/some' command"
+
+echoSeparator
 echoInfo "Cleaning generated files"
 echoSeparator
 
@@ -31,8 +36,8 @@ echoSeparator
 
 # using --settings option to avoid:
 # The specified user settings file does not exist: ~/.m2/settings.xml
-mvn --settings .emptyMavenSettings.xml \
-  archetype:create-from-project
+mvn --settings scripts/emptyMavenSettings.xml \
+  archetype:create-from-project &&
 
 echoInfo "Removing custom archetype test folder. It causes an error and is not needed."
 rm -rf target/generated-sources/archetype/src/test
@@ -42,11 +47,9 @@ echoSeparator
 echoInfo "Installing custom archetype into the local Maven repository"
 cd target/generated-sources/archetype && mvn install
 
-echoSeparator
 echoStatus "INSTALL SUCCESS"
 echoSeparator
-echoInfo "To generate project run: "
-echoInfo "   mvn clean install TODO"
+echoInfo "Run 'scripts/generateProjectCommand.sh' to get command for project generation"
 
 
 
