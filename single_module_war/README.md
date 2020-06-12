@@ -62,6 +62,7 @@ mvn archetype:generate \
   -DgitRepositoryUrl=scm:git:git@gitlab.dev.b.c:si/customer/Amazon/Amazon_hsa-fpi-fix.git \
   -DjiraUrl=https://jira4.b.c/confluence/display/SI/04+-+Integrations \
   -Dbm-product-bom=6.7.0-SNAPSHOT
+  -DinteractiveMode=false
 ```
 
 #### 5. The command, you can use to build your project, to overwrite all archetype properties
@@ -89,6 +90,7 @@ mvn archetype:generate \
   -DdistributionSnapshotRepositoryId=b-snapshot-repository \
   -DdistributionSnapshotRepositoryUrl=https://nexus.b.c/content/repositories/snapshots \
   -DauthRoleName=PIMEDIA_ORGANISATION_MODULE_ACCESS
+  -DinteractiveMode=false
   
 ```
 
