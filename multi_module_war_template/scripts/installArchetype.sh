@@ -14,7 +14,7 @@ echoStatus () {
 
 echoInfo "To be able to install the archetype, all modules must be installed into the Maven local repository"
 echoInfo "To do that, run 'mvn clean install' first, before running this script"
-echoInfo "You can delete all the installed artifacts manually with 'rm -rf ~/.m2/repository/com/savdev/some' command"
+echoInfo "You can delete all the installed artifacts manually with 'rm -rf ~/.m2/repository/com/savdev/mvn' command"
 
 echoSeparator
 echoInfo "Cleaning generated files"

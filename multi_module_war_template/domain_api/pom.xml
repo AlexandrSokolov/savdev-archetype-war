@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.savdev.some.project</groupId>
-    <artifactId>some-project-deps</artifactId>
+    <groupId>com.savdev.mvn.mm.template.project</groupId>
+    <artifactId>template-project-deps</artifactId>
     <version>1.0.0</version>
     <relativePath>../deps</relativePath>
   </parent>
 
-  <artifactId>some-project-domain-api</artifactId>
+  <artifactId>template-project-domain-api</artifactId>
   <packaging>jar</packaging>
 
   <name>Domain [Business] API</name>

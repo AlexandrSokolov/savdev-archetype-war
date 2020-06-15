@@ -24,31 +24,31 @@ mvn TODO
 
 ------------------------------------------------
 
-Some Project - visible name
-some.project - package
-some-project - artifact name
-some_project_jndi_db_name
-some_project_pu_name
+Template Project - visible name
+template.project - package
+template-project - artifact name
+template_project_jndi_db_name
+template_project_pu_name
 SecurityDomainName, SecurityRole
-"name": "some-project",
+"name": "template-project",
 
-/some/project/url
-{ "/some/project/url/rest/*": "/$1" }
+/template/project/url
+{ "/template/project/url/rest/*": "/$1" }
 
-<title>Some Project Web Application</title>
+<title>Template Project Web Application</title>
   <description package="com.webcohesion.enunciate.sample"/>
   <copyright>savdev.com</copyright>
-  <contact email="alex@some.com" name="Some Project Rest API" />
+  <contact email="alex@some.com" name="Template Project Rest API" />
 
-<application path="/some/project/url/rest"/>
+<application path="/template/project/url/rest"/>
 
 docs:
-http://localhost:18080/some/project/url/enunciate/docs/json_ExampleDto.html
+http://localhost:18080/template/project/url/enunciate/docs/json_ExampleDto.html
 file:///home/alexandr/projects/maven/template-war/multi_module_war_template/rest_api/target/enunciate/docs/index.html
 
 ```
     <swagger
-      basePath="/some/project/url/rest"
+      basePath="/template/project/url/rest"
       disabled="false">
     </swagger>
 ```

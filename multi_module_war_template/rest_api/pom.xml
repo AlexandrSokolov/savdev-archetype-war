@@ -3,21 +3,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.savdev.some.project</groupId>
-    <artifactId>some-project-deps</artifactId>
+    <groupId>com.savdev.mvn.mm.template.project</groupId>
+    <artifactId>template-project-deps</artifactId>
     <version>1.0.0</version>
     <relativePath>../deps</relativePath>
   </parent>
 
-  <artifactId>some-project-rest-api</artifactId>
+  <artifactId>template-project-rest-api</artifactId>
   <packaging>jar</packaging>
 
   <name>REST API module</name>
 
   <dependencies>
     <dependency>
-      <groupId>com.savdev.some.project</groupId>
-      <artifactId>some-project-domain-api</artifactId>
+      <groupId>com.savdev.mvn.mm.template.project</groupId>
+      <artifactId>template-project-domain-api</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

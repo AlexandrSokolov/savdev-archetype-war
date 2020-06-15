@@ -4,7 +4,7 @@
              xsi:schemaLocation="
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="some_project_pu_name" transaction-type="JTA">
-    <jta-data-source>java:/some_project_jndi_db_name</jta-data-source>
+  <persistence-unit name="template_project_pu_name" transaction-type="JTA">
+    <jta-data-source>java:/template_project_jndi_db_name</jta-data-source>
   </persistence-unit>
 </persistence>

@@ -1,19 +1,19 @@
 <enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.13.1.xsd">
 
-  <title>Some Project Rest API</title>
+  <title>Template Project Rest API</title>
   <description>
     <![CDATA[
       <h2>Rest API Documentation</h2>
-      <p>Root context: <b>/some/project/url</b></p>
+      <p>Root context: <b>/template/project/url</b></p>
     ]]>
   </description>
   <copyright>savdev.com</copyright>
-  <contact email="a@savdev.com" name="Some Project Rest API" />
+  <contact email="a@savdev.com" name="Template Project Rest API" />
 
   <api-classes>
-    <include pattern="com.savdev.some.project.rest.**" />
-    <include pattern="com.savdev.some.project.api.**" />
+    <include pattern="com.savdev.mvn.mm.template.project.rest.**" />
+    <include pattern="com.savdev.mvn.mm.template.project.api.**" />
     <include pattern="java.**" />
     <exclude pattern="**" />
   </api-classes>
@@ -27,7 +27,7 @@
       disabled="false"
     />
     <swagger
-      basePath="/some/project/url/rest"
+      basePath="/template/project/url/rest"
       disabled="false">
     </swagger>
     <jackson
@@ -38,30 +38,30 @@
       disabled="false"
       path-sort-strategy="depth_first"
       datatype-detection="aggressive">
-      <application path="/some/project/url/rest"/>
+      <application path="/template/project/url/rest"/>
     </jaxrs>
 
     <java-json-client
-      jarName="some-project-java-json-client.jar"
-      groupId="com.savdev.some.project.rest.client"
+      jarName="template-project-java-json-client.jar"
+      groupId="com.savdev.mvn.mm.template.project.rest.client"
       artifactId="rest-client">
       <package-conversions>
-        <convert from="com.savdev.some.project.rest.api" to="com.savdev.some.project.rest.api.client"/>
-        <application path="/some/project/url/rest"/>
+        <convert from="com.savdev.mvn.mm.template.project.rest.api" to="com.savdev.mvn.mm.template.project.rest.api.client"/>
+        <application path="/template/project/url/rest"/>
       </package-conversions>
     </java-json-client>
 
     <javascript-client>
       <package-conversions>
-        <convert from="com.savdev.some.project.rest.api" to="com.savdev.some.project.rest.api.client"/>
-        <application path="/some/project/url/rest"/>
+        <convert from="com.savdev.mvn.mm.template.project.rest.api" to="com.savdev.mvn.mm.template.project.rest.api.client"/>
+        <application path="/template/project/url/rest"/>
       </package-conversions>
     </javascript-client>
 
     <spring-web
       groupBy="class"
       datatype-detection="aggressive">
-      <application path="/some/project/url/rest"/>
+      <application path="/template/project/url/rest"/>
     </spring-web>
 
     <!--    disabled modules: -->

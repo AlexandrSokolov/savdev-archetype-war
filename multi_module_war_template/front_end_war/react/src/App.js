@@ -5,7 +5,7 @@ import AppLayout from "./components/AppLayout";
 import ExampleItems from "./components/ExampleItems/ExampleItems";
 import {APP_CONTENT_ROOT} from "./rest";
 
-const applicationHeader = "Some Project"
+const applicationHeader = "Template Project"
 
 const menuItemsAndContent = [
   {

@@ -1,1 +1,1 @@
-{ "/some/project/url/rest/*": "/$1" }
+{ "/template/project/url/rest/*": "/$1" }

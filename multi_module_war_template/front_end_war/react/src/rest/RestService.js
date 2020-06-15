@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 //TODO, fix it
-export const APP_CONTENT_ROOT = "/some/project/url";
+export const APP_CONTENT_ROOT = "/template/project/url";
 
 const APP_CONTENT_ROOT_REST = `${APP_CONTENT_ROOT}/rest`
 
