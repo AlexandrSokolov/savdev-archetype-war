@@ -1,0 +1,1 @@
+- remove `<parent>` tag from the `deps` module, update docs regarding it

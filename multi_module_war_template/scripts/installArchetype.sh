@@ -51,12 +51,21 @@ sed -i 's/template-project-aggregator-archetype/savdev-multi-module-archetype/g'
 # Fix artifactId for all modules in the parent section:
 find target/generated-sources/archetype/ -name pom.xml -exec \
   sed -i 's/template-project-deps/\${rootArtifactId}-deps/g' {} +
-
+#################################
+# fix group id, do not change the order:
+# the next 2 groupId fixes depend on the order. first we delete groupId, cause it inherits from the parent
+# then we correct groupId for the parent
+sed -i '/<groupId>\${groupId}<\/groupId>/,+1 d' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+sed -i 's/<groupId>com.savdev.mvn.mm.template.project<\/groupId>/<groupId>\${groupId}<\/groupId>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+find target/generated-sources/archetype/src -name pom.xml -exec \
+  sed -i 's/<groupId>com.savdev.mvn.mm.template.project<\/groupId>/<groupId>\${groupId}<\/groupId>/g' {} +
+#################################
+find target/generated-sources/archetype/src -name pom.xml -exec \
+  sed -i 's/<artifactId>template-project-/<artifactId>${rootArtifactId}-/g' {} +
 
 # Fix aggregator pom
 # main pom attributes
 sed -i 's/<artifactId>\${artifactId}<\/artifactId>/<artifactId>\${artifactId}-aggregator<\/artifactId>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
-sed -i '/<groupId>\${groupId}<\/groupId>/,+1 d' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
 sed -i '/<version>\${version}<\/version>/,+1 d' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
 # add packaging after artifact id line:
 sed -i '/<artifactId>\${artifactId}-aggregator<\/artifactId>/ a \ \ <packaging>pom<\/packaging>' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
@@ -81,6 +90,10 @@ cd target/generated-sources/archetype && mvn clean install
 echoStatus "INSTALL SUCCESS"
 echoSeparator
 echoInfo "Run 'scripts/generateProjectCommandOutput.sh' to get command for project generation"
+
+echoSeparator
+echoInfo "Fix manually:"
+echoInfo "remove the parent xml attribute from the deps module"
 
 
 
