@@ -103,6 +103,8 @@ find target/generated-sources/archetype/src -name enunciate.xml -exec \
   sed -i 's/<title>Template Project/<title>${projectName}/g' {} +
 find target/generated-sources/archetype/src -name enunciate.xml -exec \
   sed -i 's/name="Template Project/name="${projectName}/g' {} +
+find target/generated-sources/archetype/src -name App.js -exec \
+  sed -i 's/applicationHeader = "Template Project"/applicationHeader = "${projectName}"/g' {} +
 # template-project -> ${projectShortName}
 find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/template-project/${projectShortName}/g' {} +
@@ -121,6 +123,18 @@ find target/generated-sources/archetype/src -type f -exec \
 # SecurityRole -> ${securityRoleName}
 find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/SecurityRole/${securityRoleName}/g' {} +
+# <name>Sav Dev</name> -> <name>${companyName}</name>
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/<name>Sav Dev<\/name>/<name>${companyName}<\/name>/g' {} +
+# <copyright>savdev.com</copyright> -> <copyright>${companyUrl}</copyright>
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/<copyright>savdev.com<\/copyright>/<copyright>${companyUrl}<\/copyright>/g' {} +
+# <url>http://www.savdev.com</url> -> <url>http://${companyUrl}</url>
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/<url>http:\/\/www\.savdev\.com<\/url>/<url>http:\/\/${companyUrl}<\/url>/g' {} +
+# email="a@savdev.com" -> email="${companyEmail}"
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/email="a@savdev.com"/email="${companyEmail}"/g' {} +
 ################################################################################################
 
 

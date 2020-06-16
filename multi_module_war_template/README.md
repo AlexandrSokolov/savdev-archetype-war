@@ -24,13 +24,6 @@ mvn TODO
 
 ------------------------------------------------
 
-
-<title>Template Project Web Application</title>
-  <description package="com.webcohesion.enunciate.sample"/>
-  <copyright>savdev.com</copyright>
-  <contact email="alex@some.com" name="Template Project Rest API" />
-
-
 docs:
 http://localhost:18080/template/project/url/enunciate/docs/json_ExampleDto.html
 file:///home/alexandr/projects/maven/template-war/multi_module_war_template/rest_api/target/enunciate/docs/index.html

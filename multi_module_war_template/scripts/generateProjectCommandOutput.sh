@@ -11,6 +11,9 @@ mvn archetype:generate \\
   -DprojectName=\"My Integration Project Name\" \\
   -DprojectShortName=\"integration-project\" \\
   -DprojectDescription=\"Here is my integration project description\" \\
+  -DcompanyName=\"My Company Name\" \\
+  -DcompanyUrl=some.company.com \\
+  -DcompanyEmail=alex@gmail.com \\
   -DpersistenceUnitName=integration_pu \\
   -DjndiDatasourceName=\"java:/integration_db\" \\
   -DprojectUrl=\"/integration/url\" \\
