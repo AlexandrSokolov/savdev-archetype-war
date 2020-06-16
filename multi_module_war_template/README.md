@@ -24,23 +24,15 @@ mvn TODO
 
 ------------------------------------------------
 
-Template Project - visible name
-template.project - package
-template-project - artifact name
-template_project_jndi_db_name
-template_project_pu_name
 SecurityDomainName, SecurityRole
 "name": "template-project",
 
-/template/project/url
-{ "/template/project/url/rest/*": "/$1" }
 
 <title>Template Project Web Application</title>
   <description package="com.webcohesion.enunciate.sample"/>
   <copyright>savdev.com</copyright>
   <contact email="alex@some.com" name="Template Project Rest API" />
 
-<application path="/template/project/url/rest"/>
 
 docs:
 http://localhost:18080/template/project/url/enunciate/docs/json_ExampleDto.html

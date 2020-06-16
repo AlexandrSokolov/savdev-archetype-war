@@ -9,8 +9,10 @@ mvn archetype:generate \\
   -DartifactId=integration \\
   -Dversion=1.0.0 \\
   -DprojectName=\"My Integration Project Name\" \\
+  -DprojectShortName=\"integration-project\" \\
   -DprojectDescription=\"Here is my integration project description\" \\
   -DpersistenceUnitName=integration_pu \\
   -DjndiDatasourceName=\"java:/integration_db\" \\
+  -DprojectUrl=\"/integration/url\" \\
   -DinteractiveMode=false
   "

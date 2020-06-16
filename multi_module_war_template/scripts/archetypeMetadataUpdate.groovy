@@ -12,13 +12,21 @@ def archetypeDescriptor = new XmlParser().parse(archetypeDescriptorFile)
 archetypeDescriptor.children().add(0, new NodeBuilder().requiredProperties {
   [
     'projectName',
+    'projectShortName',
     'projectDescription',
     'persistenceUnitName',
-    'jndiDatasourceName']
+    'jndiDatasourceName',
+    'projectUrl']
     .each {
       requiredProperty(key: "${it}")
     }
 })
+///////////////////////////////////////////////////////////////////
+archetypeDescriptor.modules.module.find { module ->
+  module.attributes().dir == "front_end_war"
+}.fileSets.fileSet.each { fileSet ->
+  fileSet.attributes().filtered = true
+}
 ///////////////////////////////////////////////////////////////////
 
 def archetypeDescriptorUpdatedFile = "target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata-updated.xml"
