@@ -8,5 +8,9 @@ mvn archetype:generate \\
   -DgroupId=com.b.cs \\
   -DartifactId=integration \\
   -Dversion=1.0.0 \\
+  -DprojectName=\"My Integration Project Name\" \\
+  -DprojectDescription=\"Here is my integration project description\" \\
+  -DpersistenceUnitName=integration_pu \\
+  -DjndiDatasourceName=\"java:/integration_db\" \\
   -DinteractiveMode=false
   "

@@ -1,1 +1,9 @@
+- remove file set function, remove with itnot needed filesets
+- add a variable function, add variable with this function
+- list of all variables into a separate file to add them, define these variables
+- add variable usage, step by step
+- fix gitignore
+- remove scripts folder generation
+- project clear read me
 - remove `<parent>` tag from the `deps` module, update docs regarding it
+- consider using archetype-post-generate.groovy

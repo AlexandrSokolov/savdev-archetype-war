@@ -63,13 +63,7 @@ find target/generated-sources/archetype/src -name pom.xml -exec \
 find target/generated-sources/archetype/src -name pom.xml -exec \
   sed -i 's/<artifactId>template-project-/<artifactId>${rootArtifactId}-/g' {} +
 
-# Fix aggregator pom
-# main pom attributes
-sed -i 's/<artifactId>\${artifactId}<\/artifactId>/<artifactId>\${artifactId}-aggregator<\/artifactId>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
-sed -i '/<version>\${version}<\/version>/,+1 d' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
-# add packaging after artifact id line:
-sed -i '/<artifactId>\${artifactId}-aggregator<\/artifactId>/ a \ \ <packaging>pom<\/packaging>' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
-
+######################## FIX /archetype-metadata.xml
 # Fix modules names
 sed -i 's/name="template-project-/name="${rootArtifactId}-/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/id="template-project-/id="${rootArtifactId}-/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
@@ -82,6 +76,36 @@ sed -i 's/dir="sql-datasource/dir="sql_datasource/g' target/generated-sources/ar
 sed -i 's/dir="template-project/dir="front_end_war/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/name="template-project/name="${rootArtifactId}/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/id="template-project/id="${rootArtifactId}/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
+# add new properties to the archetype-metadata.xml
+chmod u+x scripts/archetypeMetadataUpdate.groovy
+./scripts/archetypeMetadataUpdate.groovy
+mv target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata-updated.xml target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
+
+######################## FIX AGGREGATOR POM
+# main pom attributes
+sed -i 's/<artifactId>\${artifactId}<\/artifactId>/<artifactId>\${artifactId}-aggregator<\/artifactId>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+sed -i '/<version>\${version}<\/version>/,+1 d' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+# add packaging after artifact id line:
+sed -i '/<artifactId>\${artifactId}-aggregator<\/artifactId>/ a \ \ <packaging>pom<\/packaging>' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+################################################################################################
+# change:
+# <description>Project Description</description>
+# into: <description>${projectDescription}</description>
+sed -i 's/<description>Project Description<\/description>/<description>\${projectDescription}<\/description>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+
+################################################################################################
+######################## START requiredProperties for all
+
+# Template Project -> ${projectName}
+find target/generated-sources/archetype/src -name pom.xml -exec \
+  sed -i 's/<name>Template Project/<name>${projectName}/g' {} +
+# template_project_pu_name -> ${persistenceUnitName}
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/template_project_pu_name/${persistenceUnitName}/g' {} +
+# java:/template_project_jndi_db_name -> ${jndiDatasourceName}
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/java\:\/template_project_jndi_db_name/${jndiDatasourceName}/g' {} +
+################################################################################################
 
 
 echoInfo "Installing custom archetype into the local Maven repository"
