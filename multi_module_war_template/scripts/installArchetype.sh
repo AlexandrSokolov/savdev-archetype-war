@@ -115,6 +115,12 @@ find target/generated-sources/archetype/src -type f -exec \
 # /template/project/url -> ${projectUrl}
 find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/\/template\/project\/url/${projectUrl}/g' {} +
+# SecurityDomainName -> ${securityDomainName}
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/SecurityDomainName/${securityDomainName}/g' {} +
+# SecurityRole -> ${securityRoleName}
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/SecurityRole/${securityRoleName}/g' {} +
 ################################################################################################
 
 

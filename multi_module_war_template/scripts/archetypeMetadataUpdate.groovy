@@ -16,7 +16,9 @@ archetypeDescriptor.children().add(0, new NodeBuilder().requiredProperties {
     'projectDescription',
     'persistenceUnitName',
     'jndiDatasourceName',
-    'projectUrl']
+    'projectUrl',
+    'securityDomainName',
+    'securityRoleName']
     .each {
       requiredProperty(key: "${it}")
     }
