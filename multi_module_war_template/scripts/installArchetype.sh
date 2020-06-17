@@ -137,6 +137,10 @@ find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/email="a@savdev.com"/email="${companyEmail}"/g' {} +
 ################################################################################################
 
+cp .gitignore target/generated-sources/archetype/src/main/resources/archetype-resources
+cp target/generated-sources/archetype/src/main/resources/archetype-resources/scripts/README4GEN.PROJECT.md target/generated-sources/archetype/src/main/resources/archetype-resources/README.md
+rm -rf target/generated-sources/archetype/src/main/resources/archetype-resources/scripts
+
 
 echoInfo "Installing custom archetype into the local Maven repository"
 cd target/generated-sources/archetype && mvn clean install

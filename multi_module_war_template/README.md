@@ -4,30 +4,18 @@ This project is a template for a custom maven archetype generation and installat
 
 The project is a Maven multi-module project.
 
+#### Requirements:
+
+- `Groovy` is installed
+- `sed` is installed
+- this template application is installed into local Maven repository via `mvn clean install`
+
 #### Usage:
 
 To install custom Maven archetype locally, run: 
 
-```./installArchetype.sh``` 
+```./scripts/installArchetype.sh``` 
 
 To generate project from the installed archetype, run:
 
-```
-mvn TODO
-```
-
-`installArchetype.sh` script performs:
-1. generates a custom archetype
-2. updates certain values in the generated files with archetype variables
-3. installs the updated custom archetype locally
-
-
-------------------------------------------------
-
-docs:
-http://localhost:18080/template/project/url/enunciate/docs/json_ExampleDto.html
-file:///home/alexandr/projects/maven/template-war/multi_module_war_template/rest_api/target/enunciate/docs/index.html
-
-yyyy-MM-dd'T'HH:mm:ss'Z'
-
-insert into example values(1, 'some name', 'CREATED', 1, 22, 333, 4444, 5555555555, 100932.02, 25.3, 35.2, 42343.43253423, now(), now(), now(), now(), now(), now(), now(), now(), now(), now(), 'another name value');
+```./scripts/generateProjectCommandOutput.sh```

@@ -33,7 +33,18 @@ archetypeDescriptor.modules.module.find { module ->
   fileSet.attributes().filtered = true
 }
 ///////////////////////////////////////////////////////////////////
+archetypeDescriptor.fileSets.fileSet
+  .findAll { fileSet -> fileSet.directory.text() == "scripts" }
+  .each { it.parent().remove(it) }
 
+archetypeDescriptor.fileSets.fileSet
+  .find { fileSet ->
+    fileSet.includes.include.any { include ->
+      include.text() == "README.md" }
+  }
+  .each { fileSet -> fileSet.parent().attributes().filtered = true }
+
+///////////////////////////////////////////////////////////////////
 def archetypeDescriptorUpdatedFile = "target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata-updated.xml"
 XmlUtil xmlUtil = new XmlUtil()
 xmlUtil.serialize(
