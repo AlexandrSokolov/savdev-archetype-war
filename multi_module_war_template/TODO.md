@@ -8,6 +8,7 @@
 - jax rs debugging logs filters
 - rest api unit tests for serialiation
 - split dependencies by modules, to delete them if not needed
+- cron job module
 - add validation for entity 
 - boolean field
 - jms module
