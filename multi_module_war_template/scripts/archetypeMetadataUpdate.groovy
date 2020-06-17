@@ -44,6 +44,10 @@ archetypeDescriptor.fileSets.fileSet
   }
   .each { fileSet -> fileSet.parent().attributes().filtered = true }
 
+archetypeDescriptor.fileSets.fileSet.includes.include
+  .findAll { include -> include.text() == "TODO.md"}
+  .each { it.parent().remove(it) }
+
 ///////////////////////////////////////////////////////////////////
 def archetypeDescriptorUpdatedFile = "target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata-updated.xml"
 XmlUtil xmlUtil = new XmlUtil()
