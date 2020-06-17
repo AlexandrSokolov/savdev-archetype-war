@@ -19,21 +19,21 @@ ${projectDescription}
 
 1. Application GUI url
 
-    `${deployed.application.host}/${projectUrl}`
+    `${deployed.application.host}${projectUrl}`
 
-    For instance: `http://localhost:18080/${projectUrl}`
+    For instance: `http://localhost:18080${projectUrl}`
 
 2. Application REST url
  
-    `${deployed.application.host}/${projectUrl}/rest`
+    `${deployed.application.host}${projectUrl}/rest`
 
-    For instance: `http://localhost:18080/${projectUrl}/rest`
+    For instance: `http://localhost:18080${projectUrl}/rest`
 
 3. Application REST Enunciate and Swagger documentation url
  
-    `${deployed.application.host}/${projectUrl}/enunciate/docs`
+    `${deployed.application.host}${projectUrl}/enunciate/docs`
                                     
-    For instance: `http://localhost:18080/${projectUrl}/enunciate/docs`
+    For instance: `http://localhost:18080${projectUrl}/enunciate/docs`
     
 #[[
 #### Dev issues: 

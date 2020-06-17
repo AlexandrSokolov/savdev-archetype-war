@@ -137,7 +137,8 @@ find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/email="a@savdev.com"/email="${companyEmail}"/g' {} +
 ################################################################################################
 
-cp .gitignore target/generated-sources/archetype/src/main/resources/archetype-resources
+//special workaround, 'gitignore' will be renamed to '.gitignore' when a real project is generated from the archetype
+cp .gitignore target/generated-sources/archetype/src/main/resources/archetype-resources/gitignore
 cp target/generated-sources/archetype/src/main/resources/archetype-resources/scripts/README4GEN.PROJECT.md target/generated-sources/archetype/src/main/resources/archetype-resources/README.md
 sed -i '/#set/,+0 d' target/generated-sources/archetype/src/main/resources/archetype-resources/scripts/archetype-post-generate.groovy
 cp target/generated-sources/archetype/src/main/resources/archetype-resources/scripts/archetype-post-generate.groovy target/generated-sources/archetype/src/main/resources/META-INF/

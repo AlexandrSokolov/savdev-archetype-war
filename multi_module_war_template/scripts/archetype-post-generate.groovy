@@ -10,6 +10,7 @@
  * This groovy script has access to the ArchetypeGenerationRequest object, accessible via 'request' variable
  */
 
+import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -44,3 +45,7 @@ file.write(
   lines.join(System.lineSeparator()))
 
 /*******************************************************************************/
+// rename 'gitignore' into '.gitignore'
+
+Path gitIgnore = Paths.get(projectPath.toString(), "gitignore")
+Files.move(gitIgnore, gitIgnore.resolveSibling(".gitignore"))
