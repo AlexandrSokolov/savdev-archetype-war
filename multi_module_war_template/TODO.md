@@ -1,7 +1,18 @@
-- fix gitignore
-- remove `<parent>` tag from the `deps` module, update docs regarding it
-- consider using archetype-post-generate.groovy
-
+- rename repository
+- try to get rid of enunciate annotations at all
+- correct url to docs, it must not include "enunciate"
+- use rest api by rest client only to test how it works
+- jax rs auth filters
+- jax rs debugging logs filters
+- rest api unit tests for serialiation
+- split dependencies by modules, to delete them if not needed
+- add validation for entity 
+- boolean field
+- jms module
+- selfexecutable jar module
+- add push notification via SSE
+- add create and update operations support frontend
+- file uploading
 - time-date issue yyyy-MM-dd'T'HH:mm:ss'Z', not sure if custom serializers are needed, see 
     The ISO 8601 format is the standard which is supported by JS by default and it's readable - 
     2011-12-03T10:15:30+01:00
@@ -21,3 +32,4 @@
     ```
 - insert data into database
     `insert into example values(1, 'some name', 'CREATED', 1, 22, 333, 4444, 5555555555, 100932.02, 25.3, 35.2, 42343.43253423, now(), now(), now(), now(), now(), now(), now(), now(), now(), now(), 'another name value');`
+- code generation: generate something based on something: table, entity, domain interface, rest dto
