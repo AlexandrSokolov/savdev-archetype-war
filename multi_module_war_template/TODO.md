@@ -1,10 +1,7 @@
-- project clear read me
-- remove file set function, remove with itnot needed filesets
 - fix gitignore
-- remove scripts folder generation
-
 - remove `<parent>` tag from the `deps` module, update docs regarding it
 - consider using archetype-post-generate.groovy
+
 - time-date issue yyyy-MM-dd'T'HH:mm:ss'Z', not sure if custom serializers are needed, see 
     The ISO 8601 format is the standard which is supported by JS by default and it's readable - 
     2011-12-03T10:15:30+01:00

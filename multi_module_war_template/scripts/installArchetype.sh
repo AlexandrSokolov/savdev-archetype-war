@@ -139,8 +139,11 @@ find target/generated-sources/archetype/src -type f -exec \
 
 cp .gitignore target/generated-sources/archetype/src/main/resources/archetype-resources
 cp target/generated-sources/archetype/src/main/resources/archetype-resources/scripts/README4GEN.PROJECT.md target/generated-sources/archetype/src/main/resources/archetype-resources/README.md
+sed -i '/#set/,+0 d' target/generated-sources/archetype/src/main/resources/archetype-resources/scripts/archetype-post-generate.groovy
+cp target/generated-sources/archetype/src/main/resources/archetype-resources/scripts/archetype-post-generate.groovy target/generated-sources/archetype/src/main/resources/META-INF/
 rm -rf target/generated-sources/archetype/src/main/resources/archetype-resources/scripts
 
+################################################################################################
 
 echoInfo "Installing custom archetype into the local Maven repository"
 cd target/generated-sources/archetype && mvn clean install
@@ -148,10 +151,6 @@ cd target/generated-sources/archetype && mvn clean install
 echoStatus "INSTALL SUCCESS"
 echoSeparator
 echoInfo "Run 'scripts/generateProjectCommandOutput.sh' to get command for project generation"
-
-echoSeparator
-echoInfo "Fix manually:"
-echoInfo "remove the parent xml attribute from the deps module"
 
 
 
