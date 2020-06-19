@@ -32,15 +32,15 @@ import static com.savdev.mvn.mm.template.project.datasource.entities.EntityExamp
 
 @Entity
 @Table(name = TABLE_NAME)
-@NamedQueries(
+@NamedQueries({
   @NamedQuery(
     name = EntityExample.Queries.BY_NAME_INDEXED_PARAM,
     query = "SELECT e FROM " + ENTITY_NAME + " e WHERE " + COLUMN_NAME + " = ?1"),
   @NamedQuery(
     name = EntityExample.Queries.BY_NAME_NAMED_PARAM,
     query = "SELECT e FROM " + ENTITY_NAME + " e WHERE " + COLUMN_NAME + " = :" + NAME_PARAM)
-)
-@NamedNativeQueries(
+})
+@NamedNativeQueries({
   @NamedNativeQuery(
     name = EntityExample.Queries.NATIVE_BY_NAME_INDEXED_PARAM,
     query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " = ?1", resultClass = EntityExample.class),
@@ -48,7 +48,7 @@ import static com.savdev.mvn.mm.template.project.datasource.entities.EntityExamp
     name = EntityExample.Queries.NATIVE_BY_NAME_NAMED_PARAM,
     query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " = :" + NAME_PARAM,
     resultClass = EntityExample.class)
-)
+})
 public class EntityExample implements ExampleApi {
 
   public interface Persistence {
