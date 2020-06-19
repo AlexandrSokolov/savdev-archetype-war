@@ -1,3 +1,7 @@
+- jpa tests for queries
+- test all queries, defined in EntityExampleRepository
+- mocking repository in tests
+- creating real repositories for IT 
 - rename repository
 - try to get rid of enunciate annotations at all
 - correct url to docs, it must not include "enunciate"
@@ -8,6 +12,7 @@
 - jax rs debugging logs filters
 - rest api unit tests for serialiation
 - split dependencies by modules, to delete them if not needed
+- update jpa queries with and without spring https://www.baeldung.com/spring-data-jpa-query
 - cron job module
 - add validation for entity 
 - boolean field

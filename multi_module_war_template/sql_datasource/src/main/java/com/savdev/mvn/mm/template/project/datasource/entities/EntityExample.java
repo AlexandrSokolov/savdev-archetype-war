@@ -28,18 +28,26 @@ import java.util.Date;
 import static com.savdev.mvn.mm.template.project.datasource.entities.EntityExample.Persistence.COLUMN_NAME;
 import static com.savdev.mvn.mm.template.project.datasource.entities.EntityExample.Persistence.ENTITY_NAME;
 import static com.savdev.mvn.mm.template.project.datasource.entities.EntityExample.Persistence.TABLE_NAME;
+import static com.savdev.mvn.mm.template.project.datasource.entities.EntityExample.Queries.NAME_PARAM;
 
 @Entity
 @Table(name = TABLE_NAME)
 @NamedQueries(
   @NamedQuery(
-    name = EntityExample.Queries.BY_NAME,
-    query = "SELECT e FROM " + ENTITY_NAME + " e WHERE " + COLUMN_NAME + " = ?1")
+    name = EntityExample.Queries.BY_NAME_INDEXED_PARAM,
+    query = "SELECT e FROM " + ENTITY_NAME + " e WHERE " + COLUMN_NAME + " = ?1"),
+  @NamedQuery(
+    name = EntityExample.Queries.BY_NAME_NAMED_PARAM,
+    query = "SELECT e FROM " + ENTITY_NAME + " e WHERE " + COLUMN_NAME + " = :" + NAME_PARAM)
 )
 @NamedNativeQueries(
   @NamedNativeQuery(
-    name = EntityExample.Queries.NATIVE_BY_NAME,
-    query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " = ?", resultClass = EntityExample.class)
+    name = EntityExample.Queries.NATIVE_BY_NAME_INDEXED_PARAM,
+    query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " = ?1", resultClass = EntityExample.class),
+  @NamedNativeQuery(
+    name = EntityExample.Queries.NATIVE_BY_NAME_NAMED_PARAM,
+    query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " = :" + NAME_PARAM,
+    resultClass = EntityExample.class)
 )
 public class EntityExample implements ExampleApi {
 
@@ -56,8 +64,11 @@ public class EntityExample implements ExampleApi {
    *
    */
   public interface Queries {
-    String BY_NAME = ENTITY_NAME + ".findByName";
-    String NATIVE_BY_NAME = ENTITY_NAME + ".findByNameNative";
+    String BY_NAME_INDEXED_PARAM = ENTITY_NAME + ".findByNameIndexedParam";
+    String NATIVE_BY_NAME_INDEXED_PARAM = ENTITY_NAME + ".findByNameNativeIndexedParam";
+    String NAME_PARAM = "name";
+    String BY_NAME_NAMED_PARAM = ENTITY_NAME + ".findByNameNamedParam";
+    String NATIVE_BY_NAME_NAMED_PARAM = ENTITY_NAME + ".findByNameNativeNamedParam";
   }
 
   public EntityExample(){}
