@@ -20,6 +20,7 @@
 - selfexecutable jar module
 - add push notification via SSE
 - add create and update operations support frontend
+- add unit tests for react: props, state, methods, events, rendering, content, code coverage
 - file uploading
 - time-date issue yyyy-MM-dd'T'HH:mm:ss'Z', not sure if custom serializers are needed, see 
     The ISO 8601 format is the standard which is supported by JS by default and it's readable - 
