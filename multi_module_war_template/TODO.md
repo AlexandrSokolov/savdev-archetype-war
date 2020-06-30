@@ -1,3 +1,4 @@
+- datetime parse exception, when post or put
 - jpa tests for queries
 - test all queries, defined in EntityExampleRepository
 - mocking repository in tests
