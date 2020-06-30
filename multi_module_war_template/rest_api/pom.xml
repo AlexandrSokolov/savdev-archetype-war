@@ -21,6 +21,11 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
+      <groupId>com.savdev.mvn.mm.template.project</groupId>
+      <artifactId>template-project-cron-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
     </dependency>

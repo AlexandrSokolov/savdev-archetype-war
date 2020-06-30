@@ -4,7 +4,6 @@
 - creating real repositories for IT 
 - rename repository
 - try to get rid of enunciate annotations at all
-- correct url to docs, it must not include "enunciate"
 - git build properties
 - github url and related attributes inlcude for publishing
 - use rest api by rest client only to test how it works
@@ -22,6 +21,17 @@
 - add create and update operations support frontend
 - add unit tests for react: props, state, methods, events, rendering, content, code coverage
 - file uploading
+- fix isssue
+  
+    ```
+    static final String CRON_EXPRESSION = "0 15 10 * * ? 2005";
+    Caused by: java.lang.IllegalArgumentException: WFLYEJB0293: Could not parse: ? in schedule expression
+    
+    Tried to correct it to "0 15 10 * * * 2005"
+    but it fails, in https://www.freeformatter.com/cron-expression-generator-quartz.html
+    with:
+    Support for specifying both a day-of-week AND a day-of-month parameter is not implemented.
+    ```
 - time-date issue yyyy-MM-dd'T'HH:mm:ss'Z', not sure if custom serializers are needed, see 
     The ISO 8601 format is the standard which is supported by JS by default and it's readable - 
     2011-12-03T10:15:30+01:00

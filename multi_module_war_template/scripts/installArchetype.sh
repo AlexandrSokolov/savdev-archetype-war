@@ -72,6 +72,7 @@ sed -i 's/dir="template-project-/dir="/g' target/generated-sources/archetype/src
 sed -i 's/dir="domain-api/dir="domain_api/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/dir="rest-api/dir="rest_api/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/dir="sql-datasource/dir="sql_datasource/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
+sed -i 's/dir="cron-core/dir="cron_core/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 # special fix to a final web war module
 sed -i 's/dir="template-project/dir="front_end_war/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/name="template-project/name="${rootArtifactId}/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
@@ -105,6 +106,8 @@ find target/generated-sources/archetype/src -name enunciate.xml -exec \
   sed -i 's/name="Template Project/name="${projectName}/g' {} +
 find target/generated-sources/archetype/src -name App.js -exec \
   sed -i 's/applicationHeader = "Template Project"/applicationHeader = "${projectName}"/g' {} +
+find target/generated-sources/archetype/src -name ApplicationTimer.java -exec \
+  sed -i 's/Template Project Timer/${projectName} Timer/g' {} +
 # template-project -> ${projectShortName}
 find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/template-project/${projectShortName}/g' {} +

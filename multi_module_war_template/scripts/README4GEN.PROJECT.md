@@ -31,9 +31,9 @@ ${projectDescription}
 
 3. Application REST Enunciate and Swagger documentation url
  
-    `${deployed.application.host}${projectUrl}/enunciate/docs`
+    `${deployed.application.host}${projectUrl}/docs`
                                     
-    For instance: `http://localhost:18080${projectUrl}/enunciate/docs`
+    For instance: `http://localhost:18080${projectUrl}/docs`
     
 #[[
 #### Dev issues: 

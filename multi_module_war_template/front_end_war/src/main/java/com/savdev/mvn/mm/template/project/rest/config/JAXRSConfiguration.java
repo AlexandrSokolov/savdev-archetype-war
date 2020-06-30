@@ -1,6 +1,7 @@
 package com.savdev.mvn.mm.template.project.rest.config;
 
 import com.google.common.collect.Sets;
+import com.savdev.mvn.mm.template.project.rest.app.TimerRestService;
 import com.savdev.mvn.mm.template.project.rest.exception.mappers.WebApplicationExceptionMapper;
 import com.savdev.mvn.mm.template.project.rest.app.AppRestService;
 
@@ -19,6 +20,7 @@ public class JAXRSConfiguration extends Application {
   public Set<Class<?>> getClasses() {
     return Sets.newHashSet(
       AppRestService.class,
+      TimerRestService.class,
       ServerSideJacksonProvider.class,
       WebApplicationExceptionMapper.class
     );

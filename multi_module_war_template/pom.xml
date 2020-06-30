@@ -24,6 +24,7 @@
   <modules>
     <module>deps</module>
     <module>domain_api</module>
+    <module>cron_core</module>
     <module>rest_api</module>
     <module>sql_datasource</module>
     <module>domain</module>
