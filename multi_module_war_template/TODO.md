@@ -1,4 +1,3 @@
-- datetime parse exception, when post or put
 - jpa tests for queries
 - test all queries, defined in EntityExampleRepository
 - mocking repository in tests
@@ -12,7 +11,6 @@
 - rest api unit tests for serialiation
 - split dependencies by modules, to delete them if not needed
 - update jpa queries with and without spring https://www.baeldung.com/spring-data-jpa-query
-- cron job module
 - add validation for entity 
 - boolean field
 - jms module
@@ -32,7 +30,11 @@
     with:
     Support for specifying both a day-of-week AND a day-of-month parameter is not implemented.
     ```
-- date and separate time tests for deserializer and serializer    
+- date and separate time unit tests for deserializer and serializer 
+- deprecated date/time api, like: java.util.Date, java.sql.Date, java.sql.Timestamp:
+  documentation
+  swagger examples
+  post new item with needed format
 - time-date issue yyyy-MM-dd'T'HH:mm:ss'Z', not sure if custom serializers are needed, see 
     The ISO 8601 format is the standard which is supported by JS by default and it's readable - 
     2011-12-03T10:15:30+01:00
@@ -51,5 +53,5 @@
           .registerModule(new JavaTimeModule());
     ```
 - insert data into database
-    `insert into example values(1, 'some name', 'CREATED', 1, 22, 333, 4444, 5555555555, 100932.02, 25.3, 35.2, 42343.43253423, now(), now(), now(), now(), now(), now(), now(), now(), now(), now(), 'another name value');`
+    `insert into example values(9991100, 'some name', 'CREATED', 1, 22, 333, 4444, 5555555555, 100932.02, 25.3, 35.2, 42343.43253423, now(), now(), now(), now(), now(), now(), now(), now(), now(), now(), 'another name value');`
 - code generation: generate something based on something: table, entity, domain interface, rest dto
