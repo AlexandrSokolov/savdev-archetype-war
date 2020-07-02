@@ -33,6 +33,7 @@
     with:
     Support for specifying both a day-of-week AND a day-of-month parameter is not implemented.
     ```
+- date and separate time tests for deserializer and serializer    
 - time-date issue yyyy-MM-dd'T'HH:mm:ss'Z', not sure if custom serializers are needed, see 
     The ISO 8601 format is the standard which is supported by JS by default and it's readable - 
     2011-12-03T10:15:30+01:00
