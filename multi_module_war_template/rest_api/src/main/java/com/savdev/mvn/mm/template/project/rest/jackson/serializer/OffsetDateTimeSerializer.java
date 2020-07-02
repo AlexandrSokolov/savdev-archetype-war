@@ -3,7 +3,7 @@ package com.savdev.mvn.mm.template.project.rest.jackson.serializer;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.savdev.mvn.mm.template.project.rest.jackson.DateTimeFormatterProvider;
+import com.savdev.mvn.mm.template.project.rest.jackson.DateTimeUtils;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -37,7 +37,7 @@ public class OffsetDateTimeSerializer extends JsonSerializer<OffsetDateTime> {
   @Override
   public void serialize(OffsetDateTime value, JsonGenerator jgen, SerializerProvider provider) throws IOException {
     jgen.writeString(
-      DateTimeFormatterProvider.instance()
+      DateTimeUtils.instance()
         .dateTimeFormatter()
         .format(value));
   }

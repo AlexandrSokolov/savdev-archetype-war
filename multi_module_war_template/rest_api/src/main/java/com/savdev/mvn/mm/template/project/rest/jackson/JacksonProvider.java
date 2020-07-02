@@ -16,9 +16,9 @@ import com.savdev.mvn.mm.template.project.rest.jackson.serializer.InstantSeriali
 import com.savdev.mvn.mm.template.project.rest.jackson.serializer.LocalDateSerializer;
 import com.savdev.mvn.mm.template.project.rest.jackson.serializer.LocalDateTimeSerializer;
 import com.savdev.mvn.mm.template.project.rest.jackson.serializer.LocalTimeSerializer;
+import com.savdev.mvn.mm.template.project.rest.jackson.serializer.MoneySerializer;
 import com.savdev.mvn.mm.template.project.rest.jackson.serializer.OffsetDateTimeSerializer;
 import com.savdev.mvn.mm.template.project.rest.jackson.serializer.ZonedDateTimeSerializer;
-import com.savdev.mvn.mm.template.project.rest.jackson.serializer.MoneySerializer;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
@@ -68,7 +68,7 @@ public class JacksonProvider extends JacksonJaxbJsonProvider  {
     * java.sql.Date
     * java.sql.Timestamp
     */
-    mapper.setDateFormat(DateTimeFormatterProvider.instance().dateFormat());
+    mapper.setDateFormat(DateTimeUtils.instance().dateFormat());
 
     //to be able to apply jackson and enunciate annotations on private fields:
     //see also: https://github.com/stoicflame/enunciate/issues/1035
