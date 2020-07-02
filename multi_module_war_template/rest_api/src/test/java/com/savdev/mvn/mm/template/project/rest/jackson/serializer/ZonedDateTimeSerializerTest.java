@@ -1,26 +1,29 @@
 package com.savdev.mvn.mm.template.project.rest.jackson.serializer;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mockito;
 
 import java.io.IOException;
 
-import static com.savdev.mvn.mm.template.project.rest.jackson.DateTimeConstants.JSON_GENERATOR;
 import static com.savdev.mvn.mm.template.project.rest.jackson.DateTimeConstants.SYSTEM_ZONED_DATE_TIME_STR;
-import static com.savdev.mvn.mm.template.project.rest.jackson.DateTimeConstants.VALUE_CAPTURE;
 import static com.savdev.mvn.mm.template.project.rest.jackson.DateTimeConstants.ZONED_DATE_TIME;
 import static org.mockito.Mockito.verify;
 
 public class ZonedDateTimeSerializerTest {
 
+  JsonGenerator jsonGenerator = Mockito.mock(JsonGenerator.class);
+  ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
 
   @Test
   public void testSerialize() throws IOException {
     ZonedDateTimeSerializer serializer = new ZonedDateTimeSerializer();
-    serializer.serialize(ZONED_DATE_TIME, JSON_GENERATOR, null);
-    verify(JSON_GENERATOR).writeString(VALUE_CAPTURE.capture());
+    serializer.serialize(ZONED_DATE_TIME, jsonGenerator, null);
+    verify(jsonGenerator).writeString(argumentCaptor.capture());
     Assert.assertEquals(
       SYSTEM_ZONED_DATE_TIME_STR,
-      VALUE_CAPTURE.getValue());
+      argumentCaptor.getValue());
   }
 }

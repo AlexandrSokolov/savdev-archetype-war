@@ -1,15 +1,7 @@
 package com.savdev.mvn.mm.template.project.rest.jackson;
 
-
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
-
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
@@ -24,8 +16,4 @@ public interface DateTimeConstants {
   ZonedDateTime ZONED_DATE_TIME = ZonedDateTime.of(LOCAL_DATE_TIME, ZoneId.systemDefault());
   ZonedDateTime CUSTOM_OFFSET_ZONED_DATE_TIME = ZonedDateTime.parse(CUSTOM_ZONED_DATE_TIME_STR)
     .withZoneSameInstant(ZoneId.systemDefault());
-
-  JsonGenerator JSON_GENERATOR = Mockito.mock(JsonGenerator.class);
-  ArgumentCaptor<String> VALUE_CAPTURE = ArgumentCaptor.forClass(String.class);
-  JsonParser JSON_PARSER = Mockito.mock(JsonParser.class);
 }
