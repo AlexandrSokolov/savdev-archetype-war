@@ -32,7 +32,19 @@
     </swagger>
     <jackson
       dateFormat="string"
-      disabled="false"/>
+      disabled="false">
+      <accessor-visibility type="field" visibility="any" />
+      <examples>
+        <example type="java.time.Instant" example="2021-12-24T10:15:30+03:00"/>
+        <example type="java.time.OffsetDateTime" example="2021-12-25T10:15:30+05:00"/>
+        <example type="java.time.ZonedDateTime" example="2021-12-26T10:15:30+02:00"/>
+        <example type="java.time.LocalDateTime" example="2021-12-27T10:15:30-02:00"/>
+        <example type="java.util.Date" example="2022-10-21T22:10:30-06:00"/>
+        <example type="java.sql.Date" example="2025-10-21T21:08:24+00:00"/>
+        <example type="java.sql.Timestamp" example="2027-10-21T21:07:24+00:00"/>
+        <example type="java.math.BigDecimal" example="5670.75"/>
+      </examples>
+    </jackson>
     <jaxrs
       groupBy="class"
       disabled="false"

@@ -4,7 +4,6 @@
 - mocking repository in tests
 - creating real repositories for IT 
 - rename repository
-- try to get rid of enunciate annotations at all
 - git build properties
 - github url and related attributes inlcude for publishing
 - use rest api by rest client only to test how it works

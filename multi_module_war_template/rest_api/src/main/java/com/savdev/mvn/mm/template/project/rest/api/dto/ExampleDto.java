@@ -1,10 +1,7 @@
 package com.savdev.mvn.mm.template.project.rest.api.dto;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.savdev.mvn.mm.template.project.api.ExampleApi;
 import com.savdev.mvn.mm.template.project.api.Status;
-import com.webcohesion.enunciate.metadata.DocumentationExample;
-import com.webcohesion.enunciate.metadata.rs.TypeHint;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -16,16 +13,9 @@ import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
-import static com.savdev.mvn.mm.template.project.rest.documentation.DocumentationExamples.DATETIME_VALUE;
-import static com.savdev.mvn.mm.template.project.rest.documentation.DocumentationExamples.MONEY_VALUE;
-
 /**
  * Rest Dto object for example item
  */
-@JsonAutoDetect(
-  fieldVisibility = JsonAutoDetect.Visibility.ANY,
-  getterVisibility = JsonAutoDetect.Visibility.ANY,
-  setterVisibility = JsonAutoDetect.Visibility.ANY)
 public class ExampleDto implements ExampleApi {
 
   private long id;
@@ -49,48 +39,46 @@ public class ExampleDto implements ExampleApi {
    *
    * @return
    */
-  @DocumentationExample(value = MONEY_VALUE)
   private BigDecimal money;
 
   private float floatField;
 
   private double doubleField;
 
-  @DocumentationExample(value = MONEY_VALUE)
   private BigDecimal decimalField;
 
-  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(Instant.class))
   private Instant instantField;
 
-  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(OffsetDateTime.class) )
   private OffsetDateTime offsetDateTime;
 
-  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(ZonedDateTime.class) )
   private ZonedDateTime zonedDateTime;
 
-  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(LocalDateTime.class) )
   private LocalDateTime localDateTime;
 
   private LocalDate localDate;
 
   private LocalTime localTime;
 
-  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(Date.class) )
   private Date javaDate;
 
-  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(Date.class) )
   private Date javaOnlyDate;
 
   /**
    * DocumentationExample is not applied correctly for java.sql.Date,
    *  see https://github.com/stoicflame/enunciate/issues/1040
    *
+   * But it works fine, if configured via:
+   *  `
+   *    <enunciate>
+   *      <modules>
+   *        <jackson>
+   *          <examples>
+   *            <example type="java.sql.Date" example="2025-10-21T21:08:24+00:00"/>
+   *  `
    * @return
    */
-  //@DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(java.sql.Date.class) )
   private java.sql.Date sqlDate;
 
-  @DocumentationExample(value=DATETIME_VALUE, type=@TypeHint(Timestamp.class) )
   private Timestamp sqlTimestamp;
 
   public ExampleDto update(final ExampleApi exampleApi){

@@ -145,13 +145,6 @@
         <version>${resteasy.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>com.webcohesion.enunciate</groupId>
-        <artifactId>enunciate-core-annotations</artifactId>
-        <version>${enunciate.version}</version>
-        <scope>provided</scope>
-      </dependency>
-
       <!-- TEST -->
       <dependency>
         <groupId>junit</groupId>
