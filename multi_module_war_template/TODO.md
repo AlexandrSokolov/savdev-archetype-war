@@ -1,3 +1,5 @@
+- JEE Performance with JMeter, Prometheus and Grafana
+  http://highcohesionloosecoupling.com/index.php/2017/10/08/jee-performance-jmeter-prometheus-grafana-complete-project-scratch/
 - jpa tests for queries
 - test all queries, defined in EntityExampleRepository
 - mocking repository in tests
