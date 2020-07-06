@@ -24,7 +24,7 @@ public class Configs {
 
   }
 
-  private static String propertiesFilePath(
+  public static String propertiesFilePath(
     final String configFolderSystemProperty,
     final String fileName) {
     if (StringUtils.isEmpty(configFolderSystemProperty)) {

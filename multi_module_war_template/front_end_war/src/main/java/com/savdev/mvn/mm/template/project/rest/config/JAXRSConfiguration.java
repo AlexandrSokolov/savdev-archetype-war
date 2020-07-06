@@ -1,6 +1,7 @@
 package com.savdev.mvn.mm.template.project.rest.config;
 
 import com.google.common.collect.Sets;
+import com.savdev.mvn.mm.template.project.rest.app.ConfigRestService;
 import com.savdev.mvn.mm.template.project.rest.app.LongRunningJobRestService;
 import com.savdev.mvn.mm.template.project.rest.app.TimerRestService;
 import com.savdev.mvn.mm.template.project.rest.exception.mappers.WebApplicationExceptionMapper;
@@ -23,6 +24,7 @@ public class JAXRSConfiguration extends Application {
       AppRestService.class,
       TimerRestService.class,
       LongRunningJobRestService.class,
+      ConfigRestService.class,
       ServerSideJacksonProvider.class,
       WebApplicationExceptionMapper.class
     );
