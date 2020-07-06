@@ -9,44 +9,27 @@
     <relativePath>../deps</relativePath>
   </parent>
 
-  <artifactId>template-project-domain</artifactId>
+  <artifactId>template-project-commons-cron</artifactId>
   <packaging>jar</packaging>
 
-  <name>Domain [Business] Service</name>
+  <name>Cron [Timer] Scheduling Core</name>
 
   <dependencies>
-    <dependency>
-      <groupId>com.savdev.mvn.mm.template.project</groupId>
-      <artifactId>template-project-domain-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.savdev.mvn.mm.template.project</groupId>
-      <artifactId>template-project-commons-cron</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.savdev.mvn.mm.template.project</groupId>
-      <artifactId>template-project-commons-config</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.savdev.mvn.mm.template.project</groupId>
-      <artifactId>template-project-sql-datasource</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.jboss.ejb3</groupId>
-      <artifactId>jboss-ejb3-ext-api</artifactId>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
     </dependency>
   </dependencies>
 

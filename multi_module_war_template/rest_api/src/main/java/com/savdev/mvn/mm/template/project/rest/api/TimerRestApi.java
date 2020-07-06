@@ -1,6 +1,6 @@
 package com.savdev.mvn.mm.template.project.rest.api;
 
-import com.savdev.mvn.mm.template.project.cron.core.Timer;
+import com.savdev.mvn.mm.template.project.commons.cron.Timer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

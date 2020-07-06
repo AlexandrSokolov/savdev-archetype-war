@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -9,42 +9,31 @@
     <relativePath>../deps</relativePath>
   </parent>
 
-  <artifactId>template-project-rest-api</artifactId>
+  <artifactId>template-project-commons-config</artifactId>
   <packaging>jar</packaging>
 
-  <name>REST API module</name>
+  <name>Configuration Core</name>
 
   <dependencies>
-    <dependency>
-      <groupId>com.savdev.mvn.mm.template.project</groupId>
-      <artifactId>template-project-domain-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.savdev.mvn.mm.template.project</groupId>
-      <artifactId>template-project-commons-cron</artifactId>
-      <version>${project.version}</version>
-    </dependency>
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.fasterxml.jackson.jaxrs</groupId>
-      <artifactId>jackson-jaxrs-json-provider</artifactId>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
     </dependency>
+
+    <!-- TEST -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-    </dependency>
+    <!-- TEST -->
   </dependencies>
 
   <build>
@@ -60,10 +49,6 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>com.webcohesion.enunciate</groupId>
-        <artifactId>enunciate-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

@@ -72,7 +72,8 @@ sed -i 's/dir="template-project-/dir="/g' target/generated-sources/archetype/src
 sed -i 's/dir="domain-api/dir="domain_api/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/dir="rest-api/dir="rest_api/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/dir="sql-datasource/dir="sql_datasource/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
-sed -i 's/dir="cron-core/dir="cron_core/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
+sed -i 's/dir="commons-cron/dir="commons_cron/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
+sed -i 's/dir="commons-config/dir="commons_config/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 # special fix to a final web war module
 sed -i 's/dir="template-project/dir="front_end_war/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/name="template-project/name="${rootArtifactId}/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
@@ -138,6 +139,12 @@ find target/generated-sources/archetype/src -type f -exec \
 # email="a@savdev.com" -> email="${companyEmail}"
 find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/email="a@savdev.com"/email="${companyEmail}"/g' {} +
+# CONFIG_FOLDER_VARIABLE = "config.dir" -> CONFIG_FOLDER_VARIABLE = "${configDirVariable}"
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/CONFIG_FOLDER_VARIABLE = "config.dir"/CONFIG_FOLDER_VARIABLE = "${configDirVariable}"/g' {} +
+# CONFIG_FILE = "template.project.properties" -> CONFIG_FILE = "${propertiesFileName}"
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/CONFIG_FILE = "template.project.properties"/CONFIG_FILE = "${propertiesFileName}"/g' {} +
 ################################################################################################
 
 //special workaround, 'gitignore' will be renamed to '.gitignore' when a real project is generated from the archetype
@@ -154,7 +161,7 @@ cd target/generated-sources/archetype && mvn clean install
 
 echoStatus "INSTALL SUCCESS"
 echoSeparator
-echoInfo "Run 'scripts/generateProjectCommandOutput.sh' to get command for project generation"
+echoInfo "Run './scripts/generateProjectCommandOutput.sh' to get command for project generation"
 
 
 

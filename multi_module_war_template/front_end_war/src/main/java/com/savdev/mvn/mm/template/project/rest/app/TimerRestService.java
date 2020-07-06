@@ -1,7 +1,7 @@
 package com.savdev.mvn.mm.template.project.rest.app;
 
-import com.savdev.mvn.mm.template.project.cron.core.CronService;
-import com.savdev.mvn.mm.template.project.cron.core.Timer;
+import com.savdev.mvn.mm.template.project.commons.cron.CronService;
+import com.savdev.mvn.mm.template.project.commons.cron.Timer;
 import com.savdev.mvn.mm.template.project.rest.api.TimerRestApi;
 
 import javax.inject.Inject;

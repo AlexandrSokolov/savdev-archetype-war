@@ -17,6 +17,8 @@ mvn archetype:generate \\
   -DpersistenceUnitName=integration_pu \\
   -DjndiDatasourceName=\"java:/integration_db\" \\
   -DprojectUrl=\"/integration/url\" \\
+  -DconfigDirVariable=INTEGRATION_CONFIG_DIR \\
+  -DpropertiesFileName=integration.properties \\
   -DsecurityDomainName=IntegrationSecurityDomain \\
   -DsecurityRoleName=IntegrationRole \\
   -DinteractiveMode=false

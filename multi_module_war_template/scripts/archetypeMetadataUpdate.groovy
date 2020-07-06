@@ -20,6 +20,8 @@ archetypeDescriptor.children().add(0, new NodeBuilder().requiredProperties {
     'persistenceUnitName',
     'jndiDatasourceName',
     'projectUrl',
+    'configDirVariable',
+    'propertiesFileName',
     'securityDomainName',
     'securityRoleName']
     .each {
