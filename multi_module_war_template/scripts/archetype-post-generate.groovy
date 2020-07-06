@@ -49,3 +49,6 @@ file.write(
 
 Path gitIgnore = Paths.get(projectPath.toString(), "gitignore")
 Files.move(gitIgnore, gitIgnore.resolveSibling(".gitignore"))
+
+Path projectPropertiesPath = Paths.get(projectPath.toString(), "config/project.properties")
+Files.move(projectPropertiesPath, projectPropertiesPath.resolveSibling((String) properties.get("propertiesFileName")))

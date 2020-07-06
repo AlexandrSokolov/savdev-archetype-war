@@ -96,6 +96,9 @@ sed -i '/<artifactId>${artifactId}-aggregator<\/artifactId>/ a \ \ <packaging>po
 sed -i 's/<description>Project Description<\/description>/<description>${projectDescription}<\/description>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
 
 ################################################################################################
+
+mv target/generated-sources/archetype/src/main/resources/archetype-resources/config/template.project.properties target/generated-sources/archetype/src/main/resources/archetype-resources/config/project.properties
+
 ######################## START requiredProperties for all
 
 # Template Project -> ${projectName}
