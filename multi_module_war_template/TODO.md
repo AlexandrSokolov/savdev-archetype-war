@@ -1,5 +1,3 @@
-- fix ConfigRestApi, it is not vissible in swagger, but only in enunciate
-- fix ConfigRestApi, it displays Returns template.project.properties configuration
 - JEE Performance with JMeter, Prometheus and Grafana
   http://highcohesionloosecoupling.com/index.php/2017/10/08/jee-performance-jmeter-prometheus-grafana-complete-project-scratch/
 - jpa tests for queries

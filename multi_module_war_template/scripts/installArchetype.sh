@@ -148,6 +148,9 @@ find target/generated-sources/archetype/src -type f -exec \
 # CONFIG_FILE = "template.project.properties" -> CONFIG_FILE = "${propertiesFileName}"
 find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/CONFIG_FILE = "template.project.properties"/CONFIG_FILE = "${propertiesFileName}"/g' {} +
+# template.project.properties -> ${propertiesFileName}
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/template.project.properties/${propertiesFileName}/g' {} +
 ################################################################################################
 
 //special workaround, 'gitignore' will be renamed to '.gitignore' when a real project is generated from the archetype
