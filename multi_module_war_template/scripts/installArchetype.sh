@@ -74,6 +74,7 @@ sed -i 's/dir="rest-api/dir="rest_api/g' target/generated-sources/archetype/src/
 sed -i 's/dir="sql-datasource/dir="sql_datasource/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/dir="commons-cron/dir="commons_cron/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/dir="commons-config/dir="commons_config/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
+sed -i 's/dir="commons-jax-rs-client/dir="commons_jax_rs_client/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 # special fix to a final web war module
 sed -i 's/dir="template-project/dir="front_end_war/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 sed -i 's/name="template-project/name="${rootArtifactId}/g' target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml

@@ -1,3 +1,6 @@
+- jax rs client findbugs issue
+    See `https://stackoverflow.com/questions/23550195/how-do-i-configure-the-findbugs-maven-plugin-to-only-check-for-annotation-violat`
+- jax rs client README.md
 - JEE Performance with JMeter, Prometheus and Grafana
   http://highcohesionloosecoupling.com/index.php/2017/10/08/jee-performance-jmeter-prometheus-grafana-complete-project-scratch/
 - jpa tests for queries
