@@ -4,9 +4,9 @@
 
   <parent>
     <groupId>com.savdev.mvn.mm.template.project</groupId>
-    <artifactId>template-project-deps</artifactId>
+    <artifactId>template-project-parent</artifactId>
     <version>1.0.0</version>
-    <relativePath>../deps</relativePath>
+    <relativePath>..</relativePath>
   </parent>
 
   <artifactId>template-project-commons-jax-rs-client</artifactId>

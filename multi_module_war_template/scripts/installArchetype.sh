@@ -45,23 +45,22 @@ rm -rf target/generated-sources/archetype/target/test-classes
 
 echoSeparator
 
-# Fix archetype pom
-sed -i 's/template-project-aggregator-archetype/savdev-multi-module-archetype/g' target/generated-sources/archetype/pom.xml
+###################### FIX ARCHETYPE POM
+sed -i 's/template-project-parent-archetype/savdev-multi-module-archetype/g' target/generated-sources/archetype/pom.xml
 
-# Fix artifactId for all modules in the parent section:
-find target/generated-sources/archetype/ -name pom.xml -exec \
-  sed -i 's/template-project-deps/${rootArtifactId}-deps/g' {} +
-#################################
-# fix group id, do not change the order:
-# the next 2 groupId fixes depend on the order. first we delete groupId, cause it inherits from the parent
-# then we correct groupId for the parent
-sed -i '/<groupId>${groupId}<\/groupId>/,+1 d' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
-sed -i 's/<groupId>com.savdev.mvn.mm.template.project<\/groupId>/<groupId>${groupId}<\/groupId>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+###################### FIX artifactId, groupId
+# <artifactId>${artifactId}</artifactId> -> <artifactId>${artifactId}-parent</artifactId>
+sed -i 's/<artifactId>${artifactId}<\/artifactId>/<artifactId>${artifactId}-parent<\/artifactId>/g' \
+  target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+# <artifactId>${rootArtifactId}</artifactId> -> <artifactId>${rootArtifactId}-parent</artifactId>
 find target/generated-sources/archetype/src -name pom.xml -exec \
-  sed -i 's/<groupId>com.savdev.mvn.mm.template.project<\/groupId>/<groupId>${groupId}<\/groupId>/g' {} +
-#################################
+  sed -i 's/<artifactId>${rootArtifactId}<\/artifactId>/<artifactId>${rootArtifactId}-parent<\/artifactId>/g' {} +
+# <artifactId>template-project- -> <artifactId>${artifactId}
 find target/generated-sources/archetype/src -name pom.xml -exec \
   sed -i 's/<artifactId>template-project-/<artifactId>${rootArtifactId}-/g' {} +
+# <groupId>com.savdev.mvn.mm.template.project</groupId> -> <groupId>${groupId}</groupId>
+find target/generated-sources/archetype/src -name pom.xml -exec \
+  sed -i 's/<groupId>com.savdev.mvn.mm.template.project<\/groupId>/<groupId>${groupId}<\/groupId>/g' {} +
 
 ######################## FIX /archetype-metadata.xml
 # Fix modules names
@@ -85,11 +84,6 @@ chmod u+x scripts/archetypeMetadataUpdate.groovy
 mv target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata-updated.xml target/generated-sources/archetype/src/main/resources/META-INF/maven/archetype-metadata.xml
 
 ######################## FIX AGGREGATOR POM
-# main pom attributes
-sed -i 's/<artifactId>${artifactId}<\/artifactId>/<artifactId>${artifactId}-aggregator<\/artifactId>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
-sed -i '/<version>${version}<\/version>/,+1 d' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
-# add packaging after artifact id line:
-sed -i '/<artifactId>${artifactId}-aggregator<\/artifactId>/ a \ \ <packaging>pom<\/packaging>' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
 # <description>Project Description</description> -> <description>${projectDescription}</description>
 sed -i 's/<description>Project Description<\/description>/<description>${projectDescription}<\/description>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
 # git@github.com:AlexandrSokolov/savdev-archetype-war.git -> ${gitUrl}
