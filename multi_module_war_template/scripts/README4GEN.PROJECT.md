@@ -1,3 +1,39 @@
+#[[### ]]# post generation steps in case some functions are not needed:
+
+You do not need
+1. React:
+
+    - remove `frontend-maven-plugin` entirely
+    - in the `maven-war-plugin` configuration remove related to React:
+      ```
+      <resource>
+        <directory>${basedir}/react/build</directory>
+        <targetPath>/</targetPath>
+      </resource>
+      ```
+    - remove `front_end_war/react` folder
+    - remove `skip-react-build` Maven profile
+
+2. Sql datasource:
+
+    - remove `sql_datasource` module itself and from the parent
+    - correct `domain` module to be able to compile it
+
+3. Security context (rest services will be available without authentication):
+
+    - Remove the line from `front_end_war/src/main/webapp/WEB-INF/jboss-web.xml`:
+      ```
+      <security-domain flushOnSessionInvalidation="true">...</security-domain>
+      ```
+      
+    - Remove from the /home/alexandr/projects/maven/tmp/my-integration/front_end_war/src/main/webapp/WEB-INF/web.xml` 
+      all security-related tags
+
+4. 
+
+Note: if you have built the project before you cleared any functionality, 
+clear your local Maven repository to avoid these artifacts usage. 
+
 #[[### ]]#${projectName}
 
 ${projectDescription}
