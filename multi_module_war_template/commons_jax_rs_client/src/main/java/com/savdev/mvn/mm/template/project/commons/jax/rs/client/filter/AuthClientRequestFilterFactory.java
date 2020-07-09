@@ -147,7 +147,7 @@ public class AuthClientRequestFilterFactory {
             .getBytes(StandardCharsets.UTF_8.name()));
       } catch (UnsupportedEncodingException e) {
         throw new IllegalStateException(e);
-      };
+      }
     }
 
     public void filter(ClientRequestContext requestContext) {

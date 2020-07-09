@@ -19,6 +19,7 @@ import java.net.URI;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.StringJoiner;
@@ -75,7 +76,7 @@ public class RequestResponseInfo {
 
     return RequestResponseInfo.builder()
       .url(requestContext.getUri())
-      .httpMethod(requestContext.getMethod().toUpperCase())
+      .httpMethod(requestContext.getMethod().toUpperCase(Locale.ENGLISH))
       .requestHeaders(requestContext.getStringHeaders())
       .objectMapper(objectMapper)
       .requestBody(requestContext.getEntity())
@@ -202,9 +203,9 @@ public class RequestResponseInfo {
 
         final InputStream fromResponse = responseContext.getEntityStream();
         final Charset responseCharset =
-          (responseContext.getMediaType() != null
+          responseContext.getMediaType() != null
             && responseContext.getMediaType().getParameters() != null
-            && responseContext.getMediaType().getParameters().containsKey("charset")) ?
+            && responseContext.getMediaType().getParameters().containsKey("charset") ?
             Charset.forName(responseContext.getMediaType().getParameters().get("charset"))
             : StandardCharsets.UTF_8;
 
