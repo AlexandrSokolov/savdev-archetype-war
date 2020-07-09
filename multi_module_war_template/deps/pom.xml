@@ -45,6 +45,7 @@
     <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
     <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
     <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
+    <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
 
     <!-- if you change it, don't forget to update version in enunciate.xml:-->
     <!-- xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.13.1.xsd-->
@@ -470,6 +471,14 @@
               </goals>
             </execution>
           </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven-deploy-plugin.version}</version>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

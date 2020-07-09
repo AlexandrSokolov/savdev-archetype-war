@@ -90,11 +90,12 @@ sed -i 's/<artifactId>${artifactId}<\/artifactId>/<artifactId>${artifactId}-aggr
 sed -i '/<version>${version}<\/version>/,+1 d' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
 # add packaging after artifact id line:
 sed -i '/<artifactId>${artifactId}-aggregator<\/artifactId>/ a \ \ <packaging>pom<\/packaging>' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
-################################################################################################
-# change:
-# <description>Project Description</description>
-# into: <description>${projectDescription}</description>
+# <description>Project Description</description> -> <description>${projectDescription}</description>
 sed -i 's/<description>Project Description<\/description>/<description>${projectDescription}<\/description>/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+# git@github.com:AlexandrSokolov/savdev-archetype-war.git -> ${gitUrl}
+sed -i 's/git@github.com\:AlexandrSokolov\/savdev-archetype-war\.git/${gitUrl}/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
+# https://github.com/AlexandrSokolov/savdev-archetype-war/wiki -> ${projectDescriptionUrl}
+sed -i 's/https\:\/\/github\.com\/AlexandrSokolov\/savdev-archetype-war\/wiki/${projectDescriptionUrl}/g' target/generated-sources/archetype/src/main/resources/archetype-resources/pom.xml
 
 ################################################################################################
 
@@ -152,6 +153,12 @@ find target/generated-sources/archetype/src -type f -exec \
 # template.project.properties -> ${propertiesFileName}
 find target/generated-sources/archetype/src -type f -exec \
   sed -i 's/template.project.properties/${propertiesFileName}/g' {} +
+# <repositoryId>someRepositoryId</repositoryId> -> <repositoryId>${nexusRepositoryId}</repositoryId>
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/<repositoryId>someRepositoryId<\/repositoryId>/<repositoryId>${nexusRepositoryId}<\/repositoryId>/g' {} +
+# <url>https://nexus.savdev.com/content/repositories/releases</url> -> <url>${nexusUrl4Publishing}</url>
+find target/generated-sources/archetype/src -type f -exec \
+  sed -i 's/<url>https:\/\/nexus\.savdev\.com\/content\/repositories\/releases<\/url>/<url>${nexusUrl4Publishing}<\/url>/g' {} +
 ################################################################################################
 
 //special workaround, 'gitignore' will be renamed to '.gitignore' when a real project is generated from the archetype

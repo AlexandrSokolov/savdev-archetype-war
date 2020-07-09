@@ -21,6 +21,12 @@
     <url>http://www.savdev.com</url>
   </organization>
 
+  <scm>
+    <connection>scm:git:git@github.com:AlexandrSokolov/savdev-archetype-war.git</connection>
+    <developerConnection>scm:git:git@github.com:AlexandrSokolov/savdev-archetype-war.git</developerConnection>
+    <url>https://github.com/AlexandrSokolov/savdev-archetype-war/wiki</url>
+  </scm>
+
   <modules>
     <module>deps</module>
     <module>domain_api</module>

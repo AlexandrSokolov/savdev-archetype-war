@@ -6,7 +6,21 @@ ${projectDescription}
 #### Build the project: 
 ]]#
 
-`mvn clean install`
+To build and apply all code quality checks, run:  `mvn clean install`
+
+To speed build up without code quality checks, run: `mvn clean package`
+
+To skip React code build, run: `mvn clean package -P skip-react-build`
+
+**To skip React code build it is required at least once build it with one of the previous commands**
+
+To skip tests, run Maven with: `-DskipTests=true` parameter. For instance:
+
+`mvn clean package -P skip-react-build -DskipTests=true`
+
+or as:
+
+`mvn clean package -DskipTests=true`
 
 #[[
 #### Requirements: 
@@ -23,13 +37,7 @@ ${projectDescription}
 
     For instance: `http://localhost:18080${projectUrl}`
 
-2. Application REST url
- 
-    `${deployed.application.host}${projectUrl}/rest`
-
-    For instance: `http://localhost:18080${projectUrl}/rest`
-
-3. Application REST Enunciate and Swagger documentation url
+2. Enunciate and Swagger documentation on supported REST services url:
  
     `${deployed.application.host}${projectUrl}/docs`
                                     
