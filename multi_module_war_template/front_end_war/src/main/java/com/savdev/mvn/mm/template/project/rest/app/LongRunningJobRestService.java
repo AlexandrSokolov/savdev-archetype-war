@@ -18,4 +18,6 @@ public class LongRunningJobRestService implements LongRunningJobRestApi {
     dto.setStatus("triggered");
     return dto;
   }
+
+
 }

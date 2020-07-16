@@ -23,7 +23,31 @@ import java.util.stream.LongStream;
 /**
  * This service is an example of running a long running job.
  *
- * EJB does not offer a good solution to cancel an asynchronous method. Each method has its own disadvantage.
+ * Requirements:
+ *  - timeout setting, @TransactionTimeout(value = 3, unit = TimeUnit.HOURS)
+ *  - public asynchronous method for entry point, @Asynchronous
+ *
+ * We should split large task into small ones and run them asynchronously.
+ *
+ * Requirements to such small tasks, run asynchronously from within the main async method:
+ *  - such methods must be public, marked with @Asynchronous
+ *  - such methods are invoked from the main asynchronous method not directly,
+ *    but only through self-reference with 'that'
+ *    otherwise they will not be invoked asynchronously
+ *  - such asynchronous methods are invoked, only if application is not undeployed,
+ *    so you do not need to think about cancellation, if such methods are not long running
+ *
+ *
+ * Requirements to make the long job cancellable:
+ *  - the asynchronous method must return Future
+ *  - to check in the asynchronous method whether it is cancelled, use SessionContext.wasCancelCalled().
+ *  - the invoker of the method, stores Future as its instance field
+ *  - in the @PostConstruct of the invoker, the instance of Future is cancelled with 'true' argument.
+ *    NOTES:
+ *      - you cannot use @PostConstruct in the service itself, it will not work!!!
+ *      - SessionContext.wasCancelCalled() works correctly, only if invoker cancells the Future result.
+ *        otherwise it always returns false
+ *
  * See 'Misleading Cancellation of a Future in @Asynchronous':
  * http://highcohesionloosecoupling.com/index.php/2017/08/28/misleading-cancellation-future-asynchronous
  *
@@ -64,7 +88,7 @@ public class LongRunningJobsService {
    */
   @TransactionTimeout(value = 3, unit = TimeUnit.HOURS)
   @Asynchronous //Asynchronous must be public
-  public void runVeryLongJob(){
+  public Future<Void> runVeryLongJob(){
 
     logger.error("runVeryLongJob async triggered");
     SomeJobEntity job = new SomeJobEntity();
@@ -72,8 +96,12 @@ public class LongRunningJobsService {
     job.created = LocalDateTime.now();
     //save and flush job entity
     //repositoryService.saveAndFlush(job)
+
+    //we queue the complex task, it is invoked, when thread is available in the pool!
     that.get().complexJob(job);
     logger.error("runVeryLongJob async finished");
+
+    return new AsyncResult<>(null);
   }
 
   /**
