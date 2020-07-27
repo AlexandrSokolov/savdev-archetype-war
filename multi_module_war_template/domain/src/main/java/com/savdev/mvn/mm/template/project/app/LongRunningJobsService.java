@@ -26,6 +26,7 @@ import java.util.stream.LongStream;
  * Requirements:
  *  - timeout setting, @TransactionTimeout(value = 3, unit = TimeUnit.HOURS)
  *  - public asynchronous method for entry point, @Asynchronous
+ *  - service itself must be marked as EJB (@Stateless, or @Singleton) otherwise async annotation is not applied
  *
  * We should split large task into small ones and run them asynchronously.
  *

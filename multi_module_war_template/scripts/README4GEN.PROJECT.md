@@ -59,6 +59,16 @@ or as:
 `mvn clean package -DskipTests=true`
 
 #[[
+#### Increment version: 
+]]#
+
+`mvn versions:set -DnewVersion=1.0.1 -DoldVersion=* -DgroupId=* -DartifactId=* -DgenerateBackupPoms=false`
+
+Note: it is not enough to run it as: `mvn versions:set -DnewVersion=1.0.1 -DgenerateBackupPoms=false`
+
+In this case dependency in `deps/pom.xml` will not be changed.
+
+#[[
 #### Requirements: 
 ]]#
 - datasource configuration with `${jndiDatasourceName}` jndi name
