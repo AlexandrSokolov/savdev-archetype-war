@@ -4,7 +4,7 @@ package com.savdev.mvn.mm.template.project.rest.api;
 
 import com.savdev.mvn.mm.template.project.rest.api.dto.JobDto;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -17,6 +17,6 @@ public interface LongRunningJobRestApi {
 
   String SERVICE_REST_URL = "/job";
 
-  @GET
+  @POST
   JobDto triggerJob();
 }
