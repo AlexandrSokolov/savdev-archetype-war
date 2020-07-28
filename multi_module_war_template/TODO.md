@@ -1,5 +1,4 @@
-- jax rs client findbugs issue
-    See `https://stackoverflow.com/questions/23550195/how-do-i-configure-the-findbugs-maven-plugin-to-only-check-for-annotation-violat`
+- arquillian test for LongRunningJobsService.java
 - jax rs client README.md
 - JEE Performance with JMeter, Prometheus and Grafana
   http://highcohesionloosecoupling.com/index.php/2017/10/08/jee-performance-jmeter-prometheus-grafana-complete-project-scratch/
@@ -8,11 +7,8 @@
 - mocking repository in tests
 - creating real repositories for IT 
 - rename repository
-- git build properties
-- github url and related attributes inlcude for publishing
+- repositories for publishing
 - use rest api by rest client only to test how it works
-- jax rs auth filters
-- jax rs debugging logs filters
 - rest api unit tests for serialiation
 - split dependencies by modules, to delete them if not needed
 - update jpa queries with and without spring https://www.baeldung.com/spring-data-jpa-query
