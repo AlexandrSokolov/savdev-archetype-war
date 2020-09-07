@@ -1,3 +1,4 @@
+- add a groovy installation check check
 - arquillian test for LongRunningJobsService.java
 - jax rs client README.md
 - JEE Performance with JMeter, Prometheus and Grafana

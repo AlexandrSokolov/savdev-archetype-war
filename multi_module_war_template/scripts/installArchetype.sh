@@ -17,6 +17,15 @@ echoInfo "To do that, run 'mvn clean install' first, before running this script"
 echoInfo "You can delete all the installed artifacts manually with 'rm -rf ~/.m2/repository/com/savdev/mvn' command"
 
 echoSeparator
+echoInfo "Check if 'groovy' is installed"
+
+if ! command -v groovy &> /dev/null
+then
+    echoStatus "ERROR: groovy: command not found"
+    exit 1
+fi
+
+echoSeparator
 echoInfo "Cleaning generated files"
 echoSeparator
 
