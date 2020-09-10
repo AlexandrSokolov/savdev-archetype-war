@@ -93,4 +93,10 @@ In this case dependency in `deps/pom.xml` will not be changed.
 #### Dev issues: 
 ]]#
 
+To build and start react application:
+```
+$ cd front_end_war/react
+$ npm start
+```
+
 For React developer, json server is configured to run on `http://localhost:3500`, see `react/web_server`
