@@ -93,7 +93,13 @@ In this case dependency in `deps/pom.xml` will not be changed.
 #### Dev issues: 
 ]]#
 
-To build and start react application:
+#[[
+##### React application development:
+]]#
+
+The app must be built at least once with `mvn clean package`. 
+The `front_end_war/react` folder will be created.
+Then you can build and start react application:
 ```
 $ cd front_end_war/react
 $ npm start
