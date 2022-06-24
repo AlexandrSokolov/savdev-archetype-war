@@ -25,7 +25,7 @@
     <snakeyaml.version>1.25</snakeyaml.version>
     <spring.data.jpa.version>2.2.7.RELEASE</spring.data.jpa.version>
 
-    <resteasy.version>3.0.19.Final</resteasy.version>
+    <resteasy.version>3.14.0.Final</resteasy.version>
     <jackson.version>2.11.0</jackson.version>
 <!--    <jackson.version>2.7.4</jackson.version>-->
 
